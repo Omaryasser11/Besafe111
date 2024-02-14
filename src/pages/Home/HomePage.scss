@@ -1,0 +1,401 @@
+#panner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 100%;
+
+
+  #panner-Section {
+    background-image: url("../../assets/Landing.png");
+    background-size: 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 90%;
+    height: 100%;
+  }
+
+}
+
+#ourServices {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 43vh;
+
+  img {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+.services {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  height: 100%;
+  margin-right: 1rem;
+  padding-bottom: 2rem;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, .12);
+
+  #Image1 {
+    background-image: url("../../assets/ServiceOne.png");
+    background-color: rgba(7, 113, 184, 0.712);
+  }
+
+  #Image2 {
+    background-image: url("../../assets/ServiceTwo.png");
+
+    background-color: rgba(7, 113, 184, 0.712);
+  }
+
+  #Image3 {
+    background-image: url("../../assets/ServiceThree.png");
+    background-color: gray;
+  }
+
+  #Image4 {
+    background-image: url("../../assets/ServiceFour.png");
+    background-color: rgba(7, 113, 184, 0.712);
+  }
+
+  #Image5 {
+    background-image: url("../../assets/ServiceFive.png");
+    background-color: rgba(7, 96, 156, 0.685);
+  }
+
+  .Image {
+
+    background-position: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 60%;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+  }
+
+  .Text {
+    height: 40%;
+    padding: 1rem;
+    background-color: white;
+    width: 100%;
+
+    h4 {
+      font-size: 1rem;
+
+    }
+
+    span {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+  }
+
+  width: 18.73%;
+
+
+}
+
+
+
+.disease {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 3rem;
+
+  margin-top: 1rem;
+
+  .card-disease {
+
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding-top: 3rem;
+
+
+
+
+
+  }
+
+
+}
+
+.Image-disease {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-position: 50%;
+  background-size: cover;
+  box-shadow: 0 8px 16px rgb(0, 0, 0);
+}
+
+#Image-diseaseOne {
+  background-image: url("../../assets/diseaseone.png");
+
+}
+
+#Image-diseaseTwo {
+  background-image: url("../../assets/diseaseTwo.png");
+
+}
+
+#Image-diseaseThree {
+  background-image: url("../../assets/diseaseThree.png");
+
+}
+
+#Image-diseaseFour {
+  background-image: url("../../assets/diseaseThree.png");
+
+}
+
+#Image-diseaseFive {
+  background-image: url("../../assets/diseaseThree.png");
+
+}
+
+#Image-diseaseSex {
+  background-image: url("../../assets/diseaseThree.png");
+
+}
+
+.disease-proplem {
+
+  padding-left: 2rem;
+
+  h6 {
+
+
+    font-size: 0.9rem;
+  }
+
+
+
+  padding-top: 1rem;
+}
+
+.headerSection-disease {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 6rem;
+  padding-right: 6rem;
+
+  button {
+
+    background-color: rgb(16, 115, 161);
+    font-size: 0.9rem;
+
+    border-radius: 5%;
+    border: none;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    border-radius: 5%;
+
+    padding: 0.5rem;
+  }
+
+
+
+}
+
+.Download-App {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1rem;
+
+}
+
+.Download-App {
+  width: 100%;
+  height: 80vh;
+  background-color: rgba(128, 128, 128, 0.082);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: flex-start;
+
+
+}
+
+.mobile-Image {
+
+  background-image: url("../../assets/download-app.png");
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+
+}
+
+.dwonload-text {
+
+  width: 50%;
+
+  button {
+
+    a {
+      text-decoration: none;
+      color: white;
+
+
+    }
+
+    .fontawesomeStyle {
+
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    background-color:rgba(0, 0, 0, 0.815);
+    border-color: transparent;
+    padding: 0.2rem;
+    border-radius:0.3rem;
+  }
+
+
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 43%;
+  padding-top: 1rem;
+
+}
+
+.Footer {
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: white;
+  margin-top: 1rem;
+  background-color: rgba(32, 113, 180, 0.747);
+
+
+
+
+}
+
+.scanQrCodeSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  /* direction: ltr; */
+  height: auto;
+  margin-top: 2rem;
+  background-color:#087E8B;
+  height: 60vh;
+  img{
+    height: 50vh;
+  }
+}
+
+
+.ScanQrCode-text-btn-Image {
+  h4 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5rem;
+    max-width: 27rem;
+    color: white;
+  }
+  p {
+    margin: 0;
+    color: #7f7f7f;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    max-width: 30rem;
+}
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.ScanQrCode-btn {
+color: rgb(10, 48, 80); ;
+  background-color: white;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  width: 14rem;
+}
+
+.MyQrCode {
+  margin-left: 4.5rem;
+  height: 7rem;
+  width: 7rem;
+}
+
+
+
+.container-Qrcode {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+}

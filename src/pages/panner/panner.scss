@@ -1,0 +1,112 @@
+.panner-container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    height: 45vh;
+    margin-bottom: 2rem;
+
+
+}
+
+.panner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+border-radius: 2rem;
+    flex-wrap: nowrap;
+    background-image: linear-gradient(169deg, #0B4B62 ,#3695A3,#64ABBB);
+
+    img,svg {
+        height: 315px;
+        width: 20rem;
+        width: 35%;
+        margin: 0 2rem;
+    }
+}
+
+
+.pannerText {
+    h1 {
+        color: white;
+     
+        font-size: 50px;
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 500;
+      max-width: 35rem;
+        // font-weight: 400;
+        // font-style: normal;
+        // font-family: "Noto Sans", sans-serif;
+        // font-optical-sizing: auto;
+        // font-weight: 600;
+        // font-style: normal;
+    font-size: 3rem;
+
+       
+    }
+
+    p {
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 50px;
+
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: white;
+          
+    }
+
+    .btn-join {
+        width: 14rem;
+        height: 3rem;
+        background:#0B3954;
+        font-size: 30px;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: white;
+        border: none;
+        border-radius: 1rem;
+    }
+
+
+
+}
+
+
+.Panner-Image {
+
+    background-image: url('../../assets/Landing.png');
+
+    background-position: 10%;
+    background-size: contain;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+
+    background-repeat: no-repeat;
+
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+
+
+    height: 100%;
+}
+
+.backGroundColor {
+
+
+
+
+    height: 100%;
+
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}

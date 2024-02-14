@@ -1,0 +1,14 @@
+#HomePage {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background-color: #f7f7f7;
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: black;
+  }
+}

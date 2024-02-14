@@ -1,0 +1,47 @@
+
+.medical_information{
+    display: flex ;
+   flex-direction: row;
+   justify-content: center;
+   align-content: center;
+   align-items: center;
+   
+   flex-wrap: wrap;
+
+width:100%;
+background-image: url();
+   
+   
+   }
+   .form-css{
+   display: flex ;
+   flex-direction: column;
+   justify-content: center;
+   align-content: center;
+   align-items: center;
+   
+   width: 100%;
+   padding-top: 1rem;
+
+   }
+
+   select{
+
+
+    width: 500px;
+    border-color: green;
+    outline: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    
+   }
+     
+
+   input{
+    width:500px ;
+    padding: 1rem;
+    border-color: green;
+    outline: none;
+   }
+  

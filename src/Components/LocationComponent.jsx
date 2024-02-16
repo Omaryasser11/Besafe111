@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import GoogleMapIframe from './GoogleMapIframe';
 const LocationComponent = () => {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
@@ -31,17 +31,9 @@ const LocationComponent = () => {
 
   return (
     <div>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <div>
-          <p>
-            Latitude: {latitude}, Longitude: {longitude}
-          </p>
-          <button onClick={handleOpenGoogleMaps}>Open in Google Maps</button>
-        </div>
-      )}
-    </div>
+    <h1>Google Map Example</h1>
+    <GoogleMapIframe latitude={latitude} longitude={longitude} />
+  </div>
   );
 };
 

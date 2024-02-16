@@ -7,9 +7,13 @@ import ScanQrCode from "./pages/ScanQrCode/ScanQrCode";
 import MyXray from "./pages/MyXray/MyXray.jsx";
 
  
-import SSS from "./pages/Medicine/Medicine.jsx"
+
 
 import { Route, Routes, BrowserRouter, Link, Outlet } from "react-router-dom";
+import MyMedicalTestForm from "./pages/MyMedicalTestForm/MyMedicalTestForm.jsx";
+import MyMedicine from "./pages/MyMedicine/MyMedicine.jsx";
+import MyMedicalInfo from "./pages/MedIcalInfoForm/MyMedicalInfo.jsx";
+
 
 
 function App() {
@@ -57,7 +61,11 @@ function App() {
             <Route path="login" element={<LoginPage />} />
             <Route path="SignUp" element={<SignUp />} />
             <Route path="ScanQrCode" element={<ScanQrCode/>} />
-
+            <Route path="MyXray" element={<MyXray/>} />
+            <Route path="MyMedicalTestForm" element={<MyMedicalTestForm/>} />
+            <Route path="MyMedicine" element={<MyMedicine/>} />
+       
+            <Route path="MyMedicallInfo" element={<MyMedicalInfo/>}/>
             {/* <Route path="MyXray" element={<MyXray/>}/>
             <Route path="MyMedicine" element={<MyMedicine/>}/>
             <Route path="MyMedicalAnalysis" element={<MyMedicalAnalysis/>}/>

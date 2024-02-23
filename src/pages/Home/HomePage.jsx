@@ -30,6 +30,7 @@ import ServiceFive from '../../assets/ServiceFive.png';
 import DiseaseTypes from "../DiseaseTypes/DiseaseTypes.jsx";
 import Map from "../../Components/LocationComponent.jsx"
 import Panner from "../panner/panner.jsx";
+import MultipleQuestionForm from "../multibleForm/MultibleForm.jsx";
 
 
 
@@ -74,10 +75,10 @@ function HomePage()  {
 
 <MedicalInfo></MedicalInfo>
 <Map/>
+
 <Footer></Footer>
 
-
-         
+<MultipleQuestionForm></MultipleQuestionForm>
         
     </>
 

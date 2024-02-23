@@ -12,7 +12,6 @@ import MedicalInfo from "../../Sections/medicalInformation/medicalInfo.jsx";
 import DiseaseTypes from "../DiseaseTypes/DiseaseTypes.jsx";
 import Map from "../../Components/LocationComponent.jsx"
 import Panner from "../panner/panner.jsx";
-import MultipleQuestionForm from "../multibleForm/MultibleForm.jsx";
 
 import React,{useEffect} from "react";
 // importing aos
@@ -46,20 +45,8 @@ function HomePage() {
       <Footer></Footer>
 
 
-<<<<<<< HEAD
 
 
-=======
-<MedicalDoc></MedicalDoc>
-
-<MedicalInfo></MedicalInfo>
-<Map/>
-
-<Footer></Footer>
-
-<MultipleQuestionForm></MultipleQuestionForm>
-        
->>>>>>> 6c02007cd4c67f345778e2411b6c546ec701e432
     </>
 
   );

@@ -1,5 +1,5 @@
 import MedicalTestImg from"../../assets/addoh_hero.jpg";
-import '../MyMedicalTestForm/MyMedicalTestForm.scss'
+import '../MyMedicalTestForm/MyMedicalTestForm.scss';
 function MyMedicalTestForm(){
 
 

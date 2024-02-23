@@ -1,0 +1,87 @@
+.Filter {
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: rgb(255 255 255);
+    height: auto;
+
+    .IMG {
+        background-image: url("../../assets/Landing2.png");
+        background-position: center;
+        background-size: cover;
+        width: 46%;
+        height: 84vh;
+        /* scale: 0.7; */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+        justify-content: center;
+        align-items: flex-start;
+
+
+    }
+
+    .Text {
+        padding: 6rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+
+        button {
+            width: 14rem;
+            height: 3rem;
+            background: #0b4b62;
+            color: white;
+            border: none;
+            border-radius: 0.3rem;
+            margin: .5rem 0;
+        }
+
+        h1 {
+            font-family: "Protest Strike", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            max-width: 30rem;
+        }
+    }
+
+}
+
+.Landing {
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: -1.2rem;
+}
+
+.Filter .Text h1 {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    max-width: 38rem;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0px 0px 9px #0b4b62;
+}
+
+.BESAFE {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5rem;
+    color: #0b4b62;
+    text-shadow: 0px 0px 0;
+}

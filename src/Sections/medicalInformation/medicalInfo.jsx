@@ -1,10 +1,23 @@
 import './medicalinfo.scss'
 import { Link } from 'react-router-dom'
+
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function MedicalInfo(){
+  useEffect(() => {
+    AOS.init({
+      duration:3000,
+      once: false,
+  
+    });
+    AOS.refresh();
+}, []);
+
 return(
 
 <>
-<div className='MedicalInfo-container col-12'> 
+<div className='MedicalInfo-container col-12' data-aos="zoom-in"> 
     <div className="col-10 MedicalInfo" >
       <div className="Image-medical">  </div>
       <div className="text-medical"> 

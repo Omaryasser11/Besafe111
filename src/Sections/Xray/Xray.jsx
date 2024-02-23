@@ -1,16 +1,27 @@
-
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { Link } from "react-router-dom";
 import '../Xray/Xray.scss';
+
+
 import Ximg from "../../assets/XRAY (2).png";
 
 function Xray() {
 
-
+    useEffect(() => {
+        AOS.init({
+          duration:3000,
+          once: false,
+      
+        });
+        AOS.refresh();
+    }, []);
 
     return (
 
 
-        <div className="Xray col-12">
+        <div className="Xray col-12" data-aos="zoom-in">
 
 
             <div className="text">

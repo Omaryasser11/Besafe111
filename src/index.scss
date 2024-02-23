@@ -6,17 +6,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Protest+Strike&family=Titan+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Protest+Strike&family=Titan+One&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Annapurna+SIL:wght@400;700&display=swap');
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  // font-family: "Archivo", sans-serif;
-  // font-family: 'Montserrat', sans-serif;
-  // font-family: 'Raleway', sans-serif;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -24,15 +22,8 @@ html {
   scroll-behavior: smooth;
 }
 
-p,
-h1,
-h2,
-h3,
-span,
-ul {
+p,h1,h2,h3,span,ul {
   margin: 0;
-
-
 }
 
 .m-3 {
@@ -44,23 +35,53 @@ ul {
 .navbarStyle {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  font-weight: 600;
+  background-color: rgb(255, 255, 255);
+  color: #0B4B62;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  /* height: 3rem; */
+
+.Linkss{
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
   justify-content: flex-start;
   padding: 1rem;
   font-weight: 600;
-  background-color: #0B4B62;
-  position: fixed;
-  z-index: 5;
-  top: 0;
-  span{
-color: white;
-font-family: "Titan One", sans-serif;
-font-weight: 400;
-font-style: normal;
-font-size: 15px;
+  background-color: rgb(255 255 255);
+  color: #0B4B62;
+  a {
+    color: #0B4B62;
   }
+
+}
+.logo1{
+  img {
+    height: 2rem;
+    width: 10rem;
+  }
+}
+
+
+  span {
+    color: white;
+    font-family: "Titan One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    color: #0B4B62;
+  }
+
+
 }
 
 body {
@@ -74,9 +95,9 @@ body {
   align-items: flex-start;
   align-content: flex-start;
   justify-content: flex-start;
-padding-top:7rem ;
- 
-#root,.App {
+  padding-top: 7rem;
+
+  #root,.App {
     min-height: 70vh;
     width: 100%;
     display: flex;
@@ -85,6 +106,7 @@ padding-top:7rem ;
     align-items: center;
     align-content: center;
     justify-content: center;
+    
 
   }
 }

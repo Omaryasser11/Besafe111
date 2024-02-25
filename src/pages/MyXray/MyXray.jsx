@@ -4,29 +4,33 @@ import { useState } from "react";
 
 
 import XrayImg from "../.././assets/Xray.jpg";
+<<<<<<< HEAD
 import Swal from "sweetalert2";
 function MyXray(){
+=======
+function MyXray() {
+>>>>>>> ed383559c07b39f0838918eb87ab3d74fe5c3870
 
-//     <div className="xray col-12">
-             
-          
-//     <div className="text">
+    //     <div className="xray col-12">
 
-//         <h4>Uploade Your Xray</h4>
-//         <p>Lorem ipsum dolor sit amet consectetur <br></br>
-//              quod natus placeat quas ratione labore 
-//              doloremque nobis 
-//              </p>
 
-//             <button className="AddXray">   <Link to={'/MYXray'} className='btn'> Add Your Xray</Link></button>  
-            
-//     </div>
+    //     <div className="text">
 
-//     <div className="xray-image">
-          
-//           </div>
-   
-// </div>
+    //         <h4>Uploade Your Xray</h4>
+    //         <p>Lorem ipsum dolor sit amet consectetur <br></br>
+    //              quod natus placeat quas ratione labore 
+    //              doloremque nobis 
+    //              </p>
+
+    //             <button className="AddXray">   <Link to={'/MYXray'} className='btn'> Add Your Xray</Link></button>  
+
+    //     </div>
+
+    //     <div className="xray-image">
+
+    //           </div>
+
+    // </div>
 
 const [currentStep, setCurrentStep] = useState(1);
 const [file, setFile] = useState(null);
@@ -94,24 +98,22 @@ const handleNext = () => {
 
 
 
-return(
+    return (
 
 
 
 
-<div className="col-12 XRay-Container">
+        <div className="col-12 XRay-Container">
 
 
-<div className=" col-12  col-md-10 col-lg-6  xrayImg" >
-
-<img src={XrayImg} className="Img"></img>
-
-</div>
+            <div className=" col-12  col-md-10 col-lg-6  xrayImg" >
+  
+                <img src={XrayImg} className="Img"></img>
 
 
-     
-<div  className="formContainer col-9 col-md-7 col-lg-5">
+            </div>
 
+<<<<<<< HEAD
     {/* <form className="form-control-Xray  col-10 col-md-9 ">
 
     <label for="myXray" className="MyXray">upload your xray</label>
@@ -121,10 +123,25 @@ return(
 
     <input onClick={ handleSubmit} type="Submit" className="btn-Upload-Xray" /> 
     <button onClick={handleNext}>Next</button>
+=======
+
+
+            <div className="formContainer col-9 col-md-7 col-lg-5">
+
+                <form className="form-control-Xray  col-10 col-md-9 ">
+
+                    <label for="myXray" className="MyXray">upload your xray</label>
+                    <input type="file" id="myXray" name="myXray" className="MyXray-File" />
+                    <label for="MyComment" className="MyComment"> My Comment</label>
+                    <textarea id="MyComment" name="MyComment" rows="4" className="MyComment-Input" placeholder="MyComment..."></textarea>
+
+                    <input type="Submit" className="btn-Upload-Xray" />
+>>>>>>> ed383559c07b39f0838918eb87ab3d74fe5c3870
 
 
 
 
+<<<<<<< HEAD
 </form> */}
 <div className="form-control-Xray">
       {currentStep === 1 && (
@@ -152,6 +169,9 @@ return(
         {currentStep === 1 ? "Next" : "Submit"}
       </button>
     </div>
+=======
+                </form>
+>>>>>>> ed383559c07b39f0838918eb87ab3d74fe5c3870
 
 
 
@@ -159,23 +179,23 @@ return(
 
 
 
-</div>
-     
-
-
-
-
-
-</div>
+            </div>
 
 
 
 
 
 
+        </div>
 
 
-)
+
+
+
+
+
+
+    )
 
 
 

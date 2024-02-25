@@ -6,8 +6,11 @@ import "animate.css";
 import "./index.scss";
 import App from "./App";
 import { RecoilRoot } from "recoil";
+import WOW from 'wowjs'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const wow = new WOW.WOW();
+wow.init();
 root.render(
   <RecoilRoot>
     <App />
@@ -37,7 +40,3 @@ root.render(
 // #How to use
 // # wow js
 // import { WOW } from "wowjs";
-// useEffect(() => {
-//   const wow = new WOW({ live: false });
-//   wow.init();
-// });

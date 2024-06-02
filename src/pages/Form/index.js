@@ -74,7 +74,7 @@ export default function FormPage() {
     } else {
       Swal.fire({
         title: "Error",
-        text: "Please Fill the emial field",
+        text: "Please Fill the email field",
         icon: "error",
       });
     }

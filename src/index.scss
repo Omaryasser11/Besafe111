@@ -10,7 +10,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Annapurna+SIL:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gurajada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -29,7 +32,6 @@ p,h1,h2,h3,span,ul {
 .m-3 {
   text-decoration: none;
   color: black;
-  color: white;
 }
 
 .navbarStyle {
@@ -101,12 +103,11 @@ body {
     min-height: 70vh;
     width: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
     align-items: center;
     align-content: center;
     justify-content: center;
-    
 
   }
 }
@@ -142,3 +143,69 @@ body {
     font-size: 16px !important;
   }
 }
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  color: black;
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #ffc107; /* Change the color on hover */
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Show the menu toggle icon on smaller screens */
+  }
+
+  .menu {
+    display: none; /* Hide the menu on larger screens */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #333;
+    padding: 10px 0;
+  }
+
+  .active {
+    display: flex; /* Show the menu when active */
+  }
+
+  .menu a {
+    margin: 10px 0;
+    color :black
+  }
+}
+.notification-link {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-counter {
+  position: absolute;
+  top: 0;
+  right: -0.5rem;
+  transform: translate(50%, -50%);
+  background-color: #0B4B62;
+  color:   white !important;
+  border-radius: 50%;
+  padding: 1px 3px;
+ font-weight: lighter !important;
+  line-height: 1;
+
+}
+

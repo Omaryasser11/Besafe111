@@ -1,81 +1,80 @@
-import "./SignUP.scss";
+import React, { useState } from 'react';
 
+const SignUp = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phoneNumber: '',
+        password: '',
+        address: ''
+    });
 
-export default function SignUp() {
-  return (
-    <div className="col-12" id="Sign-up">
-      {/* <div className="content">
-        <div className="col-12 col-md-7" id="imageSection">
-          <div className="filter">
-            <div className="col-12">
-              <img src={appLogo} />
-            </div>
-            <div className="col-12" id="mainContent">
-              <h1 className="col-12">Welcome back !</h1>
-              <p className="col-12">
-                Get access to your Orders, Wishlist and Recommendations.
-              </p>
-              <div className="col-4">
-                <p>Watch demo</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-md-5" id="formSection">
-          <form className="col-11">
-            <h1 className="col-12">Sign In</h1>
-            <div className="col-12 inputField">
-              <label className="col-12">Email Address</label>
-              <input
-                className="col-12"
-                type="email"
-                placeholder="Enter Email"
-                required
-              />
-              <span className="col-12 alert alert-danger">
-                Error will be here
-              </span>
-            </div>
-            <div className="col-12 inputField">
-              <label className="col-12">Password</label>
-              <input
-                className="col-12"
-                type="password"
-                placeholder="Enter Password"
-                required
-              />
-              <span className="col-12 alert alert-danger">
-                Error will be here
-              </span>
-            </div>
-          </form>
-        </div>
-      </div> */
-      <div className="col-9" id="Sign" > 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
 
-      <div  id="inputform">
-        <div className="logo"> </div>
-        <input type="text" placeholder="Patient-Name"></input>
-   
-        <input type="text" placeholder="National-id"></input>
-        <input type="number" placeholder="Age"></input>
-        <input type="date" placeholder="your birth date"></input>
-
-        <input type="text" placeholder="phone-Number"></input>
-   <input type="text" placeholder="E-mail"></input>
-        <input type="password" placeholder="password"></input>
-   
-   <input type="password" placeholder="Re-password"></input>
-   
-
-        <button className="log-submit" type="submit"> SignUP</button>
-
-        </div>
-
-      </div>
-      
-      
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+          const response = await fetch('http://localhost:5267/api/account/registerPatient', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+          });
+  
+          if (!response.ok) {
+              throw new Error('Failed to register. Please try again later.');
+          }
+  
+          const result = await response.json();
+          alert('Registration successful!');
+          console.log(result);
+      } catch (error) {
+          console.error('Network error:', error);
+          alert('Network error: ' + error.message);
       }
-    </div>
-  );
-}
+  };
+  
+    return (
+        <div>
+            <h2>Sign Up</h2>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Name:
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                </label><br />
+
+                <label>
+                    Email:
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+                </label><br />
+
+                <label>
+                    Phone Number:
+                    <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required />
+                </label><br />
+
+                <label>
+                    Password:
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+                </label><br />
+
+                <label>
+                    Address:
+                    <input type="text" name="address" value={formData.address} onChange={handleChange} required />
+                </label><br /><br />
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    );
+};
+
+export default SignUp;

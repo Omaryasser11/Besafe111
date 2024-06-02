@@ -23,8 +23,8 @@ function QrcodeSection() {
           <h4>Scan Qr Code Fature</h4>
           <p>Scan my Qr code or load my Qrcode to know my profile  </p>
 
-          <button className="ScanQrCode-btn  ">
-            <Link to="/ScanQrCode" className='btn'> Scan My Qr Code</Link>
+          <button className="ScanQrCodeBTN">
+            <Link to="/ScanQrCode" className='ScanQrCodeBTN'> Scan My Qr Code</Link>
           </button>
 
           {/* <img src={Qr} className='MyQrCode' alt="" /> */}

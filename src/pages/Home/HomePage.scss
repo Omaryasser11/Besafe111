@@ -343,13 +343,34 @@
   width: 70%;
 }
 
-.ScanQrCode-btn {
+.ScanQrCodeBTN {
   color: rgb(10, 48, 80);
   ;
   background-color: white;
   margin: 1rem 0;
   border-radius: 0.5rem;
   width: 14rem;
+  height: 3rem;
+  border: none;
+  border-radius: 0.3rem;
+  margin: 0.5rem 0;
+  text-align: center;
+  font-size: 1.25rem;
+  text-decoration-line: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  align-items: center;
+}
+
+.ScanQrCodeBTN:hover {
+  background-color: rgb(10, 48, 80);
+  color: white;
+  transition: 150ms;
 }
 
 .MyQrCode {
@@ -409,4 +430,7 @@
   width: 30rem;
   position: absolute;
   right: 75px;
+}
+.Qr{
+  width: 100%;
 }

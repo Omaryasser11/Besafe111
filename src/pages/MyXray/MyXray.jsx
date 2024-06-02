@@ -1,213 +1,163 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import '../MyXray/MyXray.scss';
-import { useState } from "react";
-
-
-import XrayImg from "../.././assets/Xray.jpg";
-<<<<<<< HEAD
 import Swal from "sweetalert2";
-function MyXray(){
-=======
+import '../MyXray/MyXray.scss';
+import XrayImg from "../../assets/Xray.jpg";
+
 function MyXray() {
->>>>>>> ed383559c07b39f0838918eb87ab3d74fe5c3870
+    const [AddBtn, setAddbtn] = useState(true);
+    const [DisplayBtn, setDisplayBtn] = useState(false);
 
-    //     <div className="xray col-12">
-
-
-    //     <div className="text">
-
-    //         <h4>Uploade Your Xray</h4>
-    //         <p>Lorem ipsum dolor sit amet consectetur <br></br>
-    //              quod natus placeat quas ratione labore 
-    //              doloremque nobis 
-    //              </p>
-
-    //             <button className="AddXray">   <Link to={'/MYXray'} className='btn'> Add Your Xray</Link></button>  
-
-    //     </div>
-
-    //     <div className="xray-image">
-
-    //           </div>
-
-    // </div>
-
-const [currentStep, setCurrentStep] = useState(1);
-const [file, setFile] = useState(null);
-const [text, setText] = useState('');
-const [copiedData, setCopiedData] = useState(null);
-const handleNext = () => {
-    if (currentStep === 1 && (!file )) {
-        Swal.fire({
-            position: "top-center",
-            icon: "error",
-            title: "this filed is required",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-      return;
+    function Add() {
+        setAddbtn(true);
+        setDisplayBtn(false);
     }
 
-    // Copy data to be used in the next step
-    setCopiedData({ file, text });
-
-    setCurrentStep(currentStep + 1);
-  };
-
-  const handleSubmit = () => {
-    if (!file ) {
-        Swal.fire({
-            position: "top-center",
-            icon: "error",
-            title: " the file is required ",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-      return;
+    function Display() {
+        setAddbtn(false);
+        setDisplayBtn(true);
     }
-    else{
-        Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: "all is done",
-            showConfirmButton: false,
-            timer: 1500,
-          });
 
-          
+    const [currentStep, setCurrentStep] = useState(1);
+    const [file, setFile] = useState(null);
+    const [text, setText] = useState('');
+    const [copiedData, setCopiedData] = useState(null);
 
-    }
-    
-    // Perform submission logic here
-   
-    setText('')
-  };
+    const handleNext = () => {
+        if (currentStep === 1 && (!file)) {
+            Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: "This field is required",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            return;
+        }
 
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    setFile(selectedFile);
-    
-  };
+        // Copy data to be used in the next step
+        setCopiedData({ file, text });
 
+        setCurrentStep(currentStep + 1);
+    };
 
-  const handleTextChange = (event) => {
-    const newText = event.target.value;
-    setText(newText);
-  };
+    const handleSubmit = () => {
+        if (!file) {
+            Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: "The file is required",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            return;
+        } else {
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "All is done",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        }
 
+        // Perform submission logic here
+        setText('');
+    };
 
+    const handleFileChange = (event) => {
+        const selectedFile = event.target.files[0];
+        setFile(selectedFile);
+    };
 
+    const handleTextChange = (event) => {
+        const newText = event.target.value;
+        setText(newText);
+    };
 
     return (
-
-
-
-
         <div className="col-12 XRay-Container">
-
-
-            <div className=" col-12  col-md-10 col-lg-6  xrayImg" >
-  
-                <img src={XrayImg} className="Img"></img>
-
-
+            <div className="BtnContainer">
+                <button onClick={() => Add()} className={AddBtn===true? "SelectedOne":"BTNA"}> Add Xray</button>
+                <button onClick={() => Display()} className={DisplayBtn===true? "SelectedTwo":"BTND"}>Display Info </button>
             </div>
 
-<<<<<<< HEAD
-    {/* <form className="form-control-Xray  col-10 col-md-9 ">
+            {AddBtn &&  (
+                <div className=" col-9 form-control-Xray">
+                    {currentStep === 1 &&  (
+                        <>
+                        <label>upload your xray</label>
+                            {/* Step 1: File Input */}
+                            <input className="MyXray-File" type="file" onChange={handleFileChange} />
+                        </>
+                    )}
 
-    <label for="myXray" className="MyXray">upload your xray</label>
-    <input type="file" id="myXray" name="myXray"  className="MyXray-File"  onChange={handleFileChange}/>
-    <label for="MyComment" className="MyComment"> My Comment</label>
-    <textarea onChange={handleTextChange}  value={text} id="MyComment" name="MyComment" rows="4" className="MyComment-Input" placeholder="MyComment..."></textarea>
+                    {currentStep === 2 && (
+                        <>
+                            {/* Step 2: Additional Inputs */}
+                            {/* Render inputs based on copied data */}
+                            <label>My Comment</label>
+                            <textarea
+                                className="MyComment-Input"
+                                value={text}
+                                onChange={handleTextChange}
+                                rows={7}
+                                placeholder="Comment..."
+                            />
+                        </>
+                    )}
 
-    <input onClick={ handleSubmit} type="Submit" className="btn-Upload-Xray" /> 
-    <button onClick={handleNext}>Next</button>
-=======
+                    {/* Next Button */}
+                    <button
+                        className={currentStep === 1 ? "btn-next-Xray" : "btn-Submit-Xray"}
+                        onClick={currentStep === 1 ? handleNext : handleSubmit}
+                    >
+                        {currentStep === 1 ? "Next" : "Submit"}
+                    </button>
+                </div>
+            )}
 
-
-            <div className="formContainer col-9 col-md-7 col-lg-5">
-
-                <form className="form-control-Xray  col-10 col-md-9 ">
-
-                    <label for="myXray" className="MyXray">upload your xray</label>
-                    <input type="file" id="myXray" name="myXray" className="MyXray-File" />
-                    <label for="MyComment" className="MyComment"> My Comment</label>
-                    <textarea id="MyComment" name="MyComment" rows="4" className="MyComment-Input" placeholder="MyComment..."></textarea>
-
-                    <input type="Submit" className="btn-Upload-Xray" />
->>>>>>> ed383559c07b39f0838918eb87ab3d74fe5c3870
-
-
-
-
-<<<<<<< HEAD
-</form> */}
-<div className="form-control-Xray">
-      {currentStep === 1 && (
-        <>
-          {/* Step 1: File Input */}
-          <input className="MyXray-File" type="file" onChange={handleFileChange} />
-           
-       
-      
-        </>
-      )}
-
-      {currentStep === 2 && (
-        <>
-          {/* Step 2: Additional Inputs */}
-          {/* Render inputs based on copied data */}
-          <label > my comment</label>
-          
-          <textarea className="MyComment-Input" value={text} onChange={handleTextChange} rows={5}  placeholder="comment..."  />
-        </>
-      )}
-
-      {/* Next Button */}
-      <button className={currentStep === 1 ? "btn-next-Xray" : "btn-Submit-Xray"} onClick={currentStep === 1 ? handleNext : handleSubmit}>
-        {currentStep === 1 ? "Next" : "Submit"}
-      </button>
-    </div>
-=======
-                </form>
->>>>>>> ed383559c07b39f0838918eb87ab3d74fe5c3870
-
-
-
-
-
-
-
-            </div>
-
-
-
-
-
-
+            {DisplayBtn && (
+                 <div className=" col-9 table-container">
+                 <table className="styled-table">
+                     <thead>
+                         <tr>
+                             <th>ID</th>
+                             <th>Patient Name</th>
+                             <th>Date</th>
+                             <th>Comments</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td>1</td>
+                             <td>John Doe</td>
+                             <td>2023-05-01</td>
+                             <td>No issues detected</td>
+                         </tr>
+                         <tr>
+                             <td>2</td>
+                             <td>Jane Smith</td>
+                             <td>2023-05-03</td>
+                             <td>Minor fracture</td>
+                         </tr>
+                         <tr>
+                             <td>3</td>
+                             <td>Bob Johnson</td>
+                             <td>2023-05-05</td>
+                             <td>Clear</td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+            )}
         </div>
-
-
-
-
-
-
-
-
-    )
-
-
-
-
-
-
-
-
-
-
-
+    );
 }
 
+export default MyXray;
 
-export default MyXray
+
+
+
+

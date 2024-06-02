@@ -3,12 +3,11 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
-    align-items: flex-start;
-    justify-content: space-around;
-    
-     position: absolute;
-     top:7rem ;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+     
     
     }
     .MedicalInfoImg{
@@ -27,32 +26,22 @@
 
     
     }
-    .formContainer{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    
-    z-index:3;
-    box-shadow: 0 8px 16px black;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 1.5rem;
-    background-color:rgb(62, 36, 105) !important;
- 
-    
-    }
+
     .form-control-MedicalInfo{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-    
-        border-radius: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      
+      border-radius: 1.5rem;
+      background-color: white;
+      border: solid 4px  #0B4B62;
+   gap: 1.2rem;
+      z-index:3;
+  box-shadow: 0 8px 16px black;
+   
     
     }
     
@@ -65,27 +54,8 @@
        
        
     }
-    .btn-Upload-Medicine{
-    
-        background-color:blueviolet;
-        margin-top: 1rem;
-        width: 130px;
-        color: black;
-        font-weight: 500;
-        color: white;
-    }
-    .MyMedicine{
-    
-        color: white;
-    }
-    
 
-    .MyMedicine-File{
-
-        color: red;
-        width:100%;
-        background-color: transparent;
-        }
+ 
         .MyComment-Input{
         
             border-radius: 1rem;
@@ -140,33 +110,74 @@ input{
 
     width: 75%;
  }
- .button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-  }
+
   
-  .button-container button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    outline: none;
-    margin-bottom: 1rem;
-  }
+
   
   .previous-button {
-    background-color: #ccc;
-    color: #fff;
+       
+    background-color: gainsboro;
+    
+   
+    color: red;
+    font-weight: 500;
+    
+    border-radius: 10px;
+    border-color: transparent;
+ 
+    padding: 0.5rem;
+    width: 30%;
   }
   
   .next-button {
-    background-color: #007bff;
-    color: #fff;
-  }
+
+
+    background-color: #0B4B62;
+    margin-top: 1rem;
+   
+    color: white;
+    font-weight: 500;
+    
+    border-radius: 10px;
+    border-color: transparent;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 30%;
+}
+
+  
   
   .submit-button {
-    background-color: #28a745;
-    color: #fff;
+  
+    background-color:#0B4B62;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 30%;
+    color: white;
+    font-weight: 500;
+ 
+    border-radius: 10px;
+    border-color: transparent;
+    padding: 0.5rem;
   }
+  .BtnContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    left:1rem ;
+    gap: 1rem;
+    
+
+
+  }
+  .previous-button:hover{
+    box-shadow: 0 8px 16px black;
+    background-color: white !important;
+    color: red;
+    
+
+}

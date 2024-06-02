@@ -25,7 +25,7 @@ function Medicine() {
                         adipisicing elit.
                         Fuga aspernatur molestias ducimus ea optio
                     </p>
-                    <button className="AddMedicine">   <Link to={'/MyMedicine'} className='btn'> Add Your Medicine</Link></button>
+                    <button className="AddMedicine">   <Link className="Link"  to={'/MyMedicine'} > Add Your Medicine</Link></button>
                 </div>
 
             </div>

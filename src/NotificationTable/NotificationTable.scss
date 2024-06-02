@@ -1,0 +1,43 @@
+.notification-table {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    position: fixed;
+    top: 40px; /* Adjust top position as needed */
+    right: 20px; /* Adjust right position as needed */
+    background-color: #fff; /* Set background color */
+    z-index: 999; /* Set z-index to ensure the table appears above other elements */
+  }
+  
+  .notification-actions {
+    margin-bottom: 10px;
+  }
+  
+  .remove-all-button,
+  .remove-button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-all-button:hover,
+  .remove-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .remove-all-button svg,
+  .remove-button svg {
+    margin-right: 5px;
+  }
+  .No{
+
+    color: blue;
+  }
+  

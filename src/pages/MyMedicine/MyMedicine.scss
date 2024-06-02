@@ -3,12 +3,10 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
-    align-items: flex-start;
-    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
     
-     position: absolute;
-     top:7rem ;
     
     }
     .MedicineImg{
@@ -24,23 +22,7 @@
     object-fit: cover;
     
     }
-    .formContainer{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    
-    z-index:3;
-    box-shadow: 0 8px 16px black;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 1.5rem;
-    background-color:rgb(62, 36, 105) !important;
- 
-    
-    }
+   
     .form-control-Medicine{
         display: flex;
         flex-direction: column;
@@ -48,9 +30,14 @@
         align-content: center;
         align-items: center;
         justify-content: center;
-    
+        
         border-radius: 1.5rem;
-    
+        background-color: white;
+        border: solid 4px  #0B4B62;
+     gap: 1.2rem;
+        z-index:3;
+    box-shadow: 0 8px 16px black;
+        
     }
     
     label{
@@ -99,16 +86,15 @@
    .Select-medicine{
 
 
-    border-radius: 2rem;
-    padding: 0.5rem;
+    
     border-color: transparent;
     outline: none;
   
    }
    .Select-medicine-unit{
 
-    border-radius: 2rem;
-    padding: 0.5rem;
+   
+
     border-color: transparent;
     outline: none;
     
@@ -126,14 +112,152 @@
    }
  input{
     border-radius: 2rem;
-    width: 75%;
+    width: 90%;
+    background-color: gainsboro;
+    padding: 1rem;
+
+
  
  }
 select{
 
     border-radius: 2rem;
-    padding: 0.5rem;
+    padding: 1rem;
     border-color: transparent;
     outline: none;
+    border-radius: 2rem;
+    width: 90%;
+    background-color: gainsboro;
   
+    
+ 
+  
+}
+.SelectedOne{
+ 
+    background-image:linear-gradient(169deg, #08384a, #0B4B62, #3a717d);
+  border-color: transparent;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 9rem;
+  
+  
+  }
+  .SelectedTwo{
+    background-image:linear-gradient(169deg, #08384a, #0B4B62, #3a717d);
+      border-color: transparent;
+      color: white;
+      border-radius: 1rem;
+      padding: 0.5rem;
+      width: 9rem;
+  
+  
+  
+  
+  }
+  .BTNA{
+   
+      background-color: white;
+      border-color: 2px solid  #3a717d;
+  color: black;
+  font-weight: 500;
+  border-radius: 1rem;
+  
+  width: 9rem !important;
+  padding: 0.5rem !important;
+   
+  
+  
+      
+      }
+      .BTND{
+   
+          background-color: white;
+  
+          border-color: 2px solid  #3a717d;
+      color: black;
+      font-weight: 500;
+      border-radius: 1rem;
+    
+  width: 9rem !important;
+  padding: 0.5rem !important;
+  
+          
+          
+          }
+   
+          .in{
+
+width: 90%;
+padding: 1rem;
+          }
+.next-button{
+
+    
+   
+    background-color: #0B4B62;
+    margin-top: 1rem;
+   
+    color: white;
+    font-weight: 500;
+    
+    border-radius: 10px;
+    border-color: transparent;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 30%;
+}
+.button-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+  
+
+
+   
+}
+.previous-button{
+
+   
+    
+    background-color: gainsboro;
+    
+   
+    color: red !important;
+    font-weight: 500;
+    
+    border-radius: 10px;
+    border-color: transparent;
+ 
+    padding: 0.5rem;
+    width: 30%;
+
+
+}
+.next-button:hover{
+
+    box-shadow: 0 8px 16px black;
+    background-color: white !important;
+    color:#0B4B62 ;
+}
+.previous-button:hover{
+    box-shadow: 0 8px 16px black;
+    background-color: white !important;
+    
+
+}
+.submit-button{
+
+    width: 30%;
+}
+.submit-button:hover{
+
+
+    box-shadow: 0 8px 16px black;
+    background-color: white !important;
+    color: black;
 }

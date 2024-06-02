@@ -21,10 +21,10 @@ function MedicalDoc(){
 <div className="col-10 medicalDoc" data-aos="zoom-in">
 
     <div className="text">
-        <h4 className='h4'> Upload Your Medical Test</h4>
+        <h4 className='MedicalTest'> Upload Your Medical Test</h4>
         <p >Organize your medical tests to streamline access when needed, ensuring efficiency and ease of retrieval
              </p>
-             <button className="AddMedicalDoc">   <Link to={'/MyMedicalTestForm'} className='btn'> Add Medical Test</Link></button>  
+             <button className="AddMedicalDoc">   < Link to={'/MyMedicalTestForm'} className="Link" > Add Medical Test</Link></button>  
         
     </div>
 <img src={analses} alt="" />

@@ -32,7 +32,7 @@ function Xray() {
                    
                 </p>
 
-                <button className="AddXray">   <Link to={'/MYXray'} className='btn'> Add Your Xray</Link></button>
+                <button className="AddXray">   <Link to={'/MYXray'} className='btn1'> Add Your Xray</Link></button>
 
             </div>
             <img src={Ximg} alt="" />

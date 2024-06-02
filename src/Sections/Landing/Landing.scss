@@ -35,17 +35,6 @@
         justify-content: flex-start;
         align-items: flex-start;
 
-
-        button {
-            width: 14rem;
-            height: 3rem;
-            background: #0b4b62;
-            color: white;
-            border: none;
-            border-radius: 0.3rem;
-            margin: .5rem 0;
-        }
-
         h1 {
             font-family: "Protest Strike", sans-serif;
             font-weight: 400;
@@ -84,4 +73,30 @@
     font-size: 3.5rem;
     color: #0b4b62;
     text-shadow: 0px 0px 0;
+}
+
+#button {
+    width: 14rem;
+    height: 3rem;
+    background: #0b4b62;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 1.25rem;
+    text-decoration-line: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#button:hover {
+    background-color: #ffffff;
+
+    box-shadow: #0b4b62 0px 0px 17px 0px;
+    color: #0b4b62;
 }

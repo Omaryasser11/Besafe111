@@ -29,7 +29,7 @@ return(
         Contribute to saving your life.
         </p>
         
-        <button className="AddMedicalInfo">   <Link to={'/MyMedicallInfo'} className='btn'> Add Your Medical Info</Link></button> 
+        <button className="AddMedicalInfo">   <Link className='Link' to={'/MyMedicalInfo'} > Add Your Medical Info</Link></button> 
         
         
         

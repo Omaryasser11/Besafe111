@@ -5,6 +5,7 @@ const GoogleMapIframe = ({ latitude, longitude }) => {
 
   return (
     <iframe
+    
       src={iframeSrc}
       width="600"
       height="450"
@@ -12,6 +13,7 @@ const GoogleMapIframe = ({ latitude, longitude }) => {
       allowFullScreen=""
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
+      
     ></iframe>
   );
 };

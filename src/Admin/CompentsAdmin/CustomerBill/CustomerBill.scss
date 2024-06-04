@@ -1,0 +1,50 @@
+.customer-bill {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+    
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    
+    .customer-info {
+      margin-bottom: 20px;
+      
+      p {
+        margin: 5px 0;
+      }
+    }
+    
+    .bill-items {
+      h3 {
+        margin-bottom: 10px;
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        
+        li {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 5px;
+        }
+      }
+    }
+    
+    .total {
+      margin-top: 20px;
+      
+      h3 {
+        margin-bottom: 10px;
+      }
+      
+      p {
+        font-weight: bold;
+      }
+    }
+  }
+  

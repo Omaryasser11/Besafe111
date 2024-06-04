@@ -1,0 +1,64 @@
+// UserVerifiedPage.scss
+
+.user-verified-page {
+    padding: 20px;
+
+    h1 {
+        text-align: center;
+    }
+
+    .file-upload {
+        margin: 20px 0;
+        text-align: center;
+
+        input[type='file'] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+
+    .verified-users {
+        margin-top: 20px;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            th,
+            td {
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+
+            th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .button-group {
+        margin-top: 20px;
+        text-align: center;
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    }
+}

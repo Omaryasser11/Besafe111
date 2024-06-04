@@ -1,0 +1,15 @@
+.Page2 {
+
+        height: calc(100% - 10vh);
+        background-color: white;
+        width: 100%;
+        box-shadow: inset rgba(0, 0, 0, 0.16) 0px 0px 8px 5px, inset rgba(0, 0, 0, 0.23) 10px 11px 18px 4px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    
+}

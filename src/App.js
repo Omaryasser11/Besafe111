@@ -22,7 +22,7 @@ import Connect from "./pages/OtherPages/OtherPages.jsx";
 import { AuthProvider } from "./store/auth.jsx";
 import RequireAuth from "./store/RequireAuth.jsx";
 import Navbar from "./MainCompents/Navbar.jsx";
-
+import MyMedicalPaper from "./pages/MyMedicalPaper/MyMedicalPaper.jsx";
 
 function App() {
 
@@ -54,6 +54,7 @@ function App() {
             <Route path="/MyMedicine" element={<MyMedicine />} />
             <Route path="/MyMedicalInfo" element={<MyMedicalInfo />} />
             <Route path="/MyMedicalTestForm" element={<MyMedicalTestForm />} />
+            <Route path="/MyMedicalPaper" element={<MyMedicalPaper />} />
             <Route path="/Connect to other" element={<RequireAuth>  <Connect />  </RequireAuth>} />
           </Routes>
 

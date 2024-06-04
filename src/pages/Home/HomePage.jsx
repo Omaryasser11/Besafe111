@@ -15,7 +15,7 @@ import Panner from "../panner/panner.jsx";
 import Qrinfo from "../Qr-Info-In-Scan/QrInformation"
 import QRCodeGenerator from "../GenerateQrPage/GenerateQRpage";
 import UserConnection from "../../Sections/UserConnection/UserConnection.jsx"
-
+import MedicalPaper from "../../Sections/MedicalPaper/MedicalPaper.jsx"
 import React, { useEffect } from "react";
 // importing aos
 import AOS from 'aos';
@@ -32,14 +32,15 @@ function HomePage() {
       <Medicine />
       <MedicalInfo />
       <MedicalDoc />
-      <UserConnection/>
-    
-    
+      <MedicalPaper />
+      <UserConnection />
+
+
       {/* <Map />
       <Qrinfo /> */}
       <Footer></Footer>
 
-         
+
 
 
     </>

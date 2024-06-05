@@ -18,6 +18,14 @@ const medicalPaperData = [
     { email: "patient2@example.com", patientId: 2, paperId: "P2", date: "2024-02-01", details: "Details of P2", imageUrl: "https://example.com/xray2.jpg" },
     // Add more data as needed
 ];
+const medicineData = [
+    { id: 5, name: "5885", type: "Liquid", power: "2", time: "2024-06-05T06:54:18.808285" },
+    { id: 6, name: "5885", type: "Liquid", power: "2", time: "2024-06-05T06:54:20.752056" },
+    { id: 7, name: "22222", type: "Capsule", power: "55", time: "2024-06-05T07:21:56.919322" },
+    { id: 8, name: "كيتوفين", type: "Capsule", power: "55", time: "2024-06-05T16:04:39.815074" },
+    { id: 9, name: "كحه", type: "Tablet", power: "22", time: "2024-06-05T17:09:23.908303" },
+    { id: 10, name: "كحه", type: "Tablet", power: "22", time: "2024-06-05T17:10:59.378034" },
+];
 export default function MedicalRecords() {
     // const [Xrays, setXrays] = useState(false);
     // const [MedicalTest, setMedicalTest] = useState(false);
@@ -71,7 +79,18 @@ export default function MedicalRecords() {
     const handleBackClick4 = () => {
         setSelectedPaper(null);
     };
+    /// medicines 
 
+    const [selectedMedicine, setSelectedMedicine] = useState(null);
+
+    const handleMedicineClick = (id) => {
+        const medicine = medicineData.find(record => record.id === id);
+        setSelectedMedicine(medicine);
+    };
+
+    const handleBackClick5 = () => {
+        setSelectedMedicine(null);
+    };
     return (
         <div className='col-12 Section3Hospital'>
             <div className="columan">
@@ -91,6 +110,10 @@ export default function MedicalRecords() {
                 >  Medical Test </button>
                 <button
                     onClick={() => handleSectionClick("MedicalPaper")}
+                    className='btn'
+                >Medical Paper</button>
+                <button
+                    onClick={() => handleSectionClick("Medicine")}
                     className='btn'
                 >Medical Paper</button>
             </div>
@@ -238,6 +261,53 @@ export default function MedicalRecords() {
                 )
 
                 }
+                {
+                    activeSection === "Medicine" &&
+                    (
+                        <div className="Medicine">
+                            <h1>Medicine Records</h1>
+                            {!selectedMedicine ? (
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Power</th>
+                                            <th>Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {medicineData.map((record) => (
+                                            <tr key={record.id}>
+                                                <td>
+                                                    <a href="#" onClick={() => handleMedicineClick(record.id)}>
+                                                        {record.id}
+                                                    </a>
+                                                </td>
+                                                <td>{record.name}</td>
+                                                <td>{record.type}</td>
+                                                <td>{record.power}</td>
+                                                <td>{record.time}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            ) : (
+                                <div>
+                                    <button onClick={handleBackClick5}>Back</button>
+                                    <h2>Medicine Details</h2>
+                                    <p><strong>ID:</strong> {selectedMedicine.id}</p>
+                                    <p><strong>Name:</strong> {selectedMedicine.name}</p>
+                                    <p><strong>Type:</strong> {selectedMedicine.type}</p>
+                                    <p><strong>Power:</strong> {selectedMedicine.power}</p>
+                                    <p><strong>Time:</strong> {selectedMedicine.time}</p>
+                                </div>
+                            )}
+                        </div>
+                    )
+                }
+
             </div>
         </div>
     )

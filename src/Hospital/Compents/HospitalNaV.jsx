@@ -1,16 +1,14 @@
+
+import "./HospitalNav.scss"
 import React, { useEffect, useRef, useState } from "react";
-import NotificationTable from "../NotificationTable/NotificationTable.jsx"; // Import the NotificationTable component
-import LOGO from "../assets/LOGO1.png";
+import NotificationTable from "../../NotificationTable/NotificationTable.jsx"; // Import the NotificationTable component
+import LOGO from "../../assets/LOGO1.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faHome, faQrcode, faUserCircle, faEnvelope, faInfoCircle, faBell, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { atom, useRecoilState } from 'recoil';
-import "./Navbar.scss"
-
-import { useAuth } from ".././store/auth.jsx";
-
-
-
+import "../../MainCompents/Navbar.scss"
+import { useAuth } from "../../store/auth.jsx";
 
 // Your component code here
 export const userState = atom({
@@ -22,7 +20,11 @@ export const notificationState = atom({
     key: 'notificationState',
     default: { click: false }
 });
-export default function Navbar() {
+
+export default function HospitalNaV() {
+
+
+
     const [user, setUser] = useRecoilState(userState);
 
     const [showLinks, setShowLinks] = useState(false);
@@ -73,6 +75,8 @@ export default function Navbar() {
     const userName = userData ? userData.patientName : '';
     const auth = useAuth();
 
+
+
     return (
         <>
             {showNotifications && (
@@ -85,10 +89,10 @@ export default function Navbar() {
                 </div>
                 <div className={`menu ${showLinks ? 'active' : ''}`}>
 
-                    <Link className="m-3 m3" to="/"><FontAwesomeIcon icon={faHome} /> Home</Link>
-                    <Link className="m-3 m3" to="/ScanQrCode"><FontAwesomeIcon icon={faQrcode} /> Scan Qr</Link>
-                    <Link className="m-3 m3" to="/contact-us"><FontAwesomeIcon icon={faEnvelope} /> Contact Us</Link>
-                    <Link className="m-3 m3" to="/about-us"><FontAwesomeIcon icon={faInfoCircle} /> About Us</Link>
+                    <Link className="m-3 m3" to="/Hoaptial"><FontAwesomeIcon icon={faHome} /> Home</Link>
+                    <Link className="m-3 m3" to="/Hoaptial/ScanQrCodeHospital"><FontAwesomeIcon icon={faQrcode} /> Scan Qr</Link>
+                    <Link className="m-3 m3" to="/Hoaptial/MedicalInfo"><FontAwesomeIcon icon={faEnvelope} />Medical Information</Link>
+                    <Link className="m-3 m3" to="/Hoaptial/MedicalRecords"><FontAwesomeIcon icon={faInfoCircle} /> MedicalRecords</Link>
                     {
                         auth.isAuthenticated === false && (
 
@@ -99,7 +103,7 @@ export default function Navbar() {
                                         <Link className="D flex m-3" to="/login"><FontAwesomeIcon icon={faUser} /> Login</Link>
 
                                         <div className=' Cline'></div>
-                                        <Link className="D flex m-3" to="/SignUp"><FontAwesomeIcon icon={faUser} /> Sign Up</Link>
+
                                     </div>
                                 </div>
 
@@ -135,3 +139,5 @@ export default function Navbar() {
         </>
     )
 }
+
+

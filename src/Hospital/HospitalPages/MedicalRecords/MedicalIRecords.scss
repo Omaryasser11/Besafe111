@@ -1,0 +1,51 @@
+.Section3Hospital {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin-top: 8rem;
+    padding: 2rem;
+}
+
+.columan {
+    width: 20%;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.Maino {
+    width: 70%;
+
+    height: 100vh;
+    border-radius: -1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+a {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+button {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,21 @@
+.Hoaptial {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    height: 83vh;
+    width: 100%;
+    position: relative;
+}
+.MainHospital {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+    width: 100%;
+}

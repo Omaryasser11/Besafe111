@@ -31,6 +31,12 @@ import Super from "./Admin/SuperAdmin/Super";
 import CreateAccount from "./Admin/AdminPages/CreateAccont/CreateAccount.jsx";
 import UsersPage from "./Admin/AdminPages/UsersList/UsersPage.jsx"
 import HospiatalsPage from "./Admin/AdminPages/UsersList/HospitalsPage.jsx"
+import HomeHospital from "./Hospital/HospitalPages/HomeHospital.jsx";
+import HospitalNaV from "./Hospital/Compents/HospitalNaV.jsx";
+import "./Hospital/Hoaptial.scss"
+import MedicalInfo from "./Hospital/HospitalPages/MedicalInfo/MedicalInfo.jsx";
+import ScanQrCodeHospital from "./Hospital/HospitalPages/ScanQrCodeHospital/ScanQrCodeHospital.jsx"
+import MedicalRecords from "./Hospital/HospitalPages/MedicalRecords/MedicalRecords.jsx";
 function App() {
 
 
@@ -74,6 +80,7 @@ function App() {
               <Route path="/Connect to other" element={<RequireAuth>  <Connect />  </RequireAuth>} />
             </Route>
             <Route path="HomeAdmin*" element={<NoNavBarFooterRoutes2 />} />
+            <Route path="Hoaptial*" element={<NoNavBarFooterRoutes3 />} />
 
           </Routes>
 
@@ -97,6 +104,28 @@ function App() {
             <Route path="UsersPage" element={<UsersPage />} />
             <Route path="HospiatalsPage" element={<HospiatalsPage />} />
             <Route path="/ScanQrCode" element={<ScanQrCode />} />
+            {/* <Route index element={<HomeAdmin />} /> */}
+          </Routes>
+        </div>
+      </div>
+    );
+  }
+  function NoNavBarFooterRoutes3() {
+    return (
+      <div className="Hoaptial">
+        <HospitalNaV />
+        <div className="MainHospital">
+          {/* <TopBar /> */}
+          <Routes>
+            <Route index element={<HomeHospital />} />
+            {/* Add Admin2 route here */}
+            <Route path="MedicalInfo" element={<MedicalInfo />} />
+            <Route path="MedicalRecords" element={<MedicalRecords />} />
+            <Route path="*" element={<div>Eroor</div>} />
+            <Route path="CreateAccount" element={<CreateAccount />} />
+            <Route path="UsersPage" element={<UsersPage />} />
+            <Route path="HospiatalsPage" element={<HospiatalsPage />} />
+            <Route path="/ScanQrCodeHospital" element={<ScanQrCodeHospital />} />
             {/* <Route index element={<HomeAdmin />} /> */}
           </Routes>
         </div>

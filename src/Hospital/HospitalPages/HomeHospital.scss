@@ -1,0 +1,63 @@
+.BackGroundImg {
+    background-image: url("../../assets/Hospital.png");
+    background-position: center;
+    background-size: cover;
+    height: 80%;
+    width: 50%;
+}
+
+.Section1Hospital {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Text h1 {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    max-width: 38rem;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0px 0px 9px #0b4b62;
+}
+
+.BESAFE {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5rem;
+    color: #0b4b62;
+    text-shadow: 0px 0px 0;
+}
+.Text {
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.btn {
+    width: 14rem;
+    height: 3rem;
+    background: #0b4b62;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 1.25rem;
+    text-decoration-line: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}

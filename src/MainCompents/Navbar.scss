@@ -1,0 +1,191 @@
+.navbarStyle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  background-color: rgb(255, 255, 255);
+  color: #0b4b62;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+}
+
+
+
+span {
+  color: white;
+  font-family: "Titan One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  color: #0b4b62;
+}
+
+
+
+.logo1 img {
+  height: 2rem;
+  width: 10rem;
+}
+
+.m3 {
+  text-decoration: none;
+  font-size: 17px;
+  margin: 0 10px;
+  font-weight: 800;
+  font-family: "Reddit Sans", sans-serif;
+  padding: 5px 0;
+  color: black;
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color 0.2s ease;
+  position: relative;
+  color: #0b4b62;
+
+}
+
+.m3::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #062a38;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.m3:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+
+}
+
+.m3:hover {
+  color: #062a38;
+}
+
+.Auth {
+  width: auto;
+  background-color: whitesmoke;
+  border: solid 2px#0b4b62;
+  border-radius: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.Cline {
+  background-color:#0b4b62;
+  width: 0.2rem;
+  height: 5rem;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.menu {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.D,
+.Auth .flexRSB a {
+  font-size: 13.5px;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 0 #04222d;
+  color: #0b4b62;
+  transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  font-weight: 800;
+  height: 100%;
+  padding: 1rem;
+  margin: 0;
+}
+
+.D:hover {
+  box-shadow: inset 100px 0 0 0  #062a38;
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+
+.notification-link {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-counter {
+  position: absolute;
+  top: 0;
+  right: -0.5rem;
+  transform: translate(50%, -50%);
+  background-color: #0b4b62;
+  color: white !important;
+  border-radius: 50%;
+  padding: 1px 3px;
+  font-weight: lighter !important;
+  line-height: 1;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    /* Show the menu toggle icon on smaller screens */
+  }
+
+  .menu {
+    display: none;
+    /* Hide the menu on larger screens */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #333;
+    padding: 10px 0;
+  }
+
+  .active {
+    display: flex;
+    /* Show the menu when active */
+  }
+
+  .menu a {
+    margin: 10px 0;
+    color: black;
+  }
+}

@@ -1,0 +1,94 @@
+.Footer {
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: white;
+    margin-top: 1rem;
+
+    background-color: rgb(24, 24, 24);
+    background-color: #02181f;
+
+
+
+}
+
+.mainF {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.IconFooter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+
+    .icon {
+        margin: 0 .5rem 0 .25rem;
+        font-size: 1.5rem;
+        background-color: white;
+        color: #0f3946;
+        border-radius: .2rem;
+        padding: .2rem;
+    }
+
+    margin: 1rem 0;
+}
+
+.RIGHT {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 185px;
+    width: 185px;
+    background-color: #0f3946;
+    margin-right: 3rem;
+    box-shadow: 1px 1px 1px white;
+    border-radius: 1rem 0 1rem 0;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    box-shadow: #023e52  5px 5px,#054d65 10px 10px, #055b76 15px 15px, rgb(5 128 143) 20px 20px, #00BCD4 25px 25px;
+
+    p {
+        color: white;
+    }
+}
+
+.iconCard {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: .5rem;
+
+}
+
+.annapurna-sil-bold {
+    font-family: "Annapurna SIL", serif;
+    font-weight: 700;
+    font-style: normal;
+}

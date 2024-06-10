@@ -1,0 +1,28 @@
+ .disease{
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  height: 100vh;
+  background-color: red;
+
+ }
+ 
+  .disease-section-image{
+
+
+    background-image: url("../../assets/Disease.jpg");
+    background-position: 50%;
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+  
+  }
+  .text{
+    background-color:linear(red green ) ;
+      
+
+    
+  }

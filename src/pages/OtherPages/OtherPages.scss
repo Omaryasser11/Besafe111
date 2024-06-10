@@ -1,0 +1,42 @@
+.connect-container {
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .connect-header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .connect-input {
+    width: 300px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .connect-button {
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .connect-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .connect-success {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: green;
+  }
+  

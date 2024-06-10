@@ -1,0 +1,82 @@
+.message-page {
+    padding: 20px;
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        td {
+            font-size: 1rem;
+            color: #0f4b35;
+
+            font-weight: 400;
+
+            &:nth-child(1) {
+                width: 15%;
+            }
+
+            &:nth-child(2) {
+                width: 20%;
+            }
+
+            &:nth-child(3) {
+                width: 15%;
+            }
+
+            &:nth-child(4) {
+                width: 40%;
+            }
+
+            &:nth-child(5) {
+                width: 10%;
+            }
+        }
+    }
+}
+
+
+.search-container {
+    width: 50%;
+    margin-bottom: 1rem;
+}
+
+.message-page table th {
+    background-color: #39a17a;
+    font-weight: bold;
+    text-align: center;
+}
+
+table tr:hover {
+    background-color: #39a17b47;
+}
+
+.delete {
+    background-color: #f44336;
+    padding: 5px 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+}
+
+.delete:hover {
+    background-color: #a81d13;
+    transition: .4s;
+}

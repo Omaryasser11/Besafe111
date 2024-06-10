@@ -1,0 +1,249 @@
+.XRay-Container{
+
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-content: center;
+align-items: center;
+justify-content: center;
+position: relative;
+
+
+}
+.xrayImg{
+
+ height: 70vh;
+object-fit: cover;
+
+
+}
+.Img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+
+}
+.formContainer{
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-content: center;
+align-items: center;
+justify-content: center;
+
+z-index:3;
+box-shadow: 0 8px 16px black;
+margin-top: 1rem;
+margin-bottom: 1rem;
+border-radius: 1.5rem;
+
+
+
+}
+.form-control-Xray{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 1.5rem;
+    background-color: white;
+    border: solid 4px  #0B4B62;
+   
+    z-index:3;
+box-shadow: 0 8px 16px black;
+
+
+}
+
+// label{
+
+   
+//     font-weight: 700;
+  
+   
+//     color: #0B4B62 !important;
+//     font-size: 1.7rem;
+
+// }
+.btn-next-Xray{
+
+    background-color: #0B4B62;
+    margin-top: 1rem;
+   
+    color: white;
+    font-weight: 500;
+    
+    border-radius: 10px;
+    border-color: transparent;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 30%;
+}
+.btn-Submit-Xray{
+
+    background-color:#0B4B62;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 30%;
+    color: white;
+    font-weight: 500;
+ 
+    border-radius: 10px;
+    border-color: transparent;
+    padding: 0.5rem;
+}
+.btn-Submit-Xray:hover{
+
+    background-color: white;
+    box-shadow: 0 8px 16px black;
+    color: #0B4B62 ;
+}
+.btn-next-Xray:hover{
+
+
+     box-shadow: 0 8px 16px black;
+     background-color: white !important;
+     color:#0B4B62 ;
+}
+.MyXray{
+
+    color: white;
+}
+
+
+    
+.MyXray-File{
+
+color: red;
+width:100%;
+background-color: transparent;
+}
+.MyComment-Input{
+
+  border-radius: 1rem;
+
+  
+  font-size: 1rem;
+  width: 90% !important;
+  padding: 1rem;
+  font-weight: 500;
+background-color: gainsboro !important;
+  outline: none;
+  border-color: transparent;
+
+   
+}
+.BtnContainer{
+
+
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-content: flex-start;
+align-items: flex-start;
+justify-content: flex-start;
+position: absolute;
+left:1rem ;
+gap: 1rem;
+
+
+}
+.SelectedOne{
+ 
+  background-image:linear-gradient(169deg, #08384a, #0B4B62, #3a717d);
+border-color: transparent;
+color: white;
+border-radius: 1rem;
+padding: 0.5rem;
+width: 8rem;
+
+
+}
+.SelectedTwo{
+  background-color: #08384a;
+    border-color: transparent;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width: 8rem;
+
+
+
+
+}
+.BTNA{
+ 
+    background-color: white;
+    border-color: 2px solid  #3a717d;
+color: black;
+font-weight: 500;
+border-radius: 1rem;
+
+width: 8rem;
+padding: 0.5rem;
+ 
+
+
+    
+    }
+    .BTND{
+ 
+        background-color: white;
+
+        border-color: 2px solid  #3a717d;
+    color: black;
+    font-weight: 500;
+    border-radius: 1rem;
+  
+width: 8rem;
+padding: 0.5rem;
+
+        
+        
+        }
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+     
+          }
+          
+          .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: 'Arial', sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          }
+          
+          .styled-table thead tr {
+            background-image:linear-gradient(169deg, #08384a, #0B4B62, #3a717d);
+            color: #ffffff;
+            text-align: left;
+          }
+          
+          .styled-table th,
+          .styled-table td {
+            padding: 12px 15px;
+          }
+          
+          .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+          }
+          
+          .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+          }
+          
+          .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #0B4B62 ;
+          }
+          
+          .styled-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+          }

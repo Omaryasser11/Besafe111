@@ -1,0 +1,102 @@
+// TimeSlotPage.scss
+
+.time-slot-page {
+    padding: 20px;
+
+    h1 {
+        text-align: center;
+    }
+
+    .time-slot-form {
+        margin-bottom: 20px;
+        text-align: center;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            input[type='date'],
+            input[type='time'] {
+                padding: 5px;
+                font-size: 16px;
+            }
+
+            label {
+                display: flex;
+                align-items: center;
+                font-size: 16px;
+
+                input[type='checkbox'] {
+                    margin-left: 5px;
+                }
+            }
+
+            button {
+                padding: 5px 10px;
+                background-color: #15ac3b;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #064e1a;
+                transition: .4s;
+            }
+        }
+    }
+
+    .time-slot-list {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+
+        .time-slot {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 60%;
+
+
+
+            p {
+                margin-bottom: 5px;
+                font-size: 16px;
+            }
+
+            .slot-actions {
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+
+                button {
+                    padding: 5px 10px;
+                    background-color: #dc3545;
+                    color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                button:hover {
+                    background-color: #c82333;
+                }
+            }
+        }
+    }
+}
+
+.time-slot-page .btn {
+    margin-top: 2rem;
+}

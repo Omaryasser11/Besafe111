@@ -1,0 +1,107 @@
+.medical-form {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    border: 1px solid #ccccccbe;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.747);
+    width: 400px;
+    margin: auto;
+  box-shadow: 0 8px 16px black; ;
+
+  
+  }
+  
+  .question-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensure enough width to accommodate all steps */
+    transition: transform 0.5s ease; /* Apply transition on transform property */
+  }
+  
+  .question-label {
+    font-weight: bold;
+
+    margin-bottom: 5px;
+     flex: 1;
+     box-sizing: border-box;
+    color: black;
+  }
+  
+  .question-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+  }
+  
+  .previous-button,
+  .next-button,
+  .submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .previous-button:hover,
+  .next-button:hover,
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .submit-button {
+    margin-right: 0;
+  }
+   
+
+ 
+  
+
+/* Slide in from the right */
+.slideInRight {
+    animation-name: slideInRightAnimation;
+    animation-duration: 1s;
+  }
+  
+  @keyframes slideInRightAnimation {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Slide in from the left */
+  .slideInLeft {
+    animation-name: slideInLeftAnimation;
+    animation-duration: 1s;
+  }
+  
+  @keyframes slideInLeftAnimation {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  

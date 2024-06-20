@@ -1,28 +1,43 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./ForgetPassword.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
+import fetchApi from "../../BaseUrl";
+
 const ForgotPasswordForm = () => {
     const [email, setEmail] = useState('');
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here, e.g., send email for password reset
-        console.log('Submit email:', email);
-        // You can add more logic here, like sending the email for password reset
+        setError(null);
+
+        try {
+            const response = await fetchApi.post('/account/sendEmailResetPassword', {
+                email
+            });
+
+            if (response.status >= 200 && response.status < 300) {
+                console.log('Email submitted:', email);
+                navigate('/EnterOTP', { state: { email } });
+            } else {
+                const errorText = await response.data;
+                setError(errorText.message || 'An error occurred');
+            }
+        } catch (err) {
+            console.error('Error during fetch:', err);
+            setError('Failed to send email. Please try again.');
+        }
     };
 
     return (
-
         <div className="containerForm col-10">
-            <div >
-                {/* <FontAwesomeIcon className='icon' icon={faLock} /> */}
-            </div>
             <div className="col-md-4 col-md-offset-4">
                 <div className="panel panel-default">
                     <div className="panel-body">
@@ -34,14 +49,12 @@ const ForgotPasswordForm = () => {
                                 <form id="register-form" role="form" autoComplete="off" className="form" onSubmit={handleSubmit}>
                                     <div className="form-group">
                                         <div className="input-group">
-                                            <input id="email" name="email" placeholder="email address" className="form-control" type="email" value={email} onChange={handleEmailChange} />
+                                            <input id="email" name="email" placeholder="email address" className="form-control" type="email" value={email} onChange={handleEmailChange} required />
                                         </div>
                                     </div>
+                                    {error && <div className="alert alert-danger" role="alert">{error}</div>}
                                     <div className="form-group">
-                                        <Link to="/EnterOTP" className="btn btn-lg btn-primary btn-block">
-                                            Reset Password
-                                        </Link>
-                                        {/* <input name="recover-submit" className="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit" /> */}
+                                        <button type="submit" className="btn btn-lg btn-primary btn-block">Reset Password</button>
                                     </div>
                                     <input type="hidden" className="hide" name="token" id="token" value="" />
                                 </form>
@@ -50,7 +63,6 @@ const ForgotPasswordForm = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

@@ -1,0 +1,54 @@
+      <table style={{ width: "100%" }}>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {notifications.length > 0 ? (
+            notifications.map((notification, index) => (
+              <tr
+                key={index}
+                className={`notification-item ${notification.type.toLowerCase()}`}
+              >
+                <td>{notification.type}</td>
+                <td>{notification.content}</td>
+                <td>{notification.date}</td>
+                <td>
+                  <button
+                    className="remove-button"
+                    onClick={() => handleRemove(notification.id)}
+                  >
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
+                  <button
+                    className="remove-button"
+                    onClick={() =>
+                      handleAcceptConnect(notification?.resourceId)
+                    }
+                  >
+                    Ac
+                  </button>
+                  {notification?.type === "Location" && (
+                    <Link
+                      to={`/LocationComponent/${notification?.resourceId}`}
+                      className="btn btn-primary bg-primary"
+                    >
+                      Location
+                    </Link>
+                  )}
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4" className="No">
+                No notifications
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>

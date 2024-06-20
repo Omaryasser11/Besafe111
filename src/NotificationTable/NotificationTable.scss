@@ -1,43 +1,212 @@
-.notification-table {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-    position: fixed;
-    top: 40px; /* Adjust top position as needed */
-    right: 20px; /* Adjust right position as needed */
-    background-color: #fff; /* Set background color */
-    z-index: 999; /* Set z-index to ensure the table appears above other elements */
-  }
-  
-  .notification-actions {
-    margin-bottom: 10px;
-  }
-  
-  .remove-all-button,
-  .remove-button {
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .remove-all-button:hover,
-  .remove-button:hover {
-    background-color: #c0392b;
-  }
-  
-  .remove-all-button svg,
-  .remove-button svg {
-    margin-right: 5px;
-  }
-  .No{
+$table-bg: #ffffff;
+$table-header-bg: #f8f9fa;
+$table-border-radius: 0.5rem;
+$avatar-size: 45px;
+$badge-success-bg: #198754;
+$badge-primary-bg: #0d6efd;
+$badge-warning-bg: #ffc107;
 
-    color: blue;
+.Fixed {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  position: fixed;
+  top: 40px;
+  /* Adjust top position as needed */
+  right: 20px;
+  /* Adjust right position as needed */
+  background-color: #fff;
+  /* Set background color */
+  z-index: 999;
+  /* Set z-index to ensure the table appears above other elements */
+  width: 900px;
+  /* Fixed width for the table */
+}
+
+.notification-table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: none;
+
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    border: none;
   }
-  
+
+  thead {
+    background-color: #f8f9fa;
+
+    th {
+      font-weight: bold;
+
+      &:first-child {
+        width: 10%; // Adjust the width of the first column (Type)
+      }
+
+      &:nth-child(2) {
+        width: 34%; // Adjust the width of the second column (Title)
+      }
+
+      &:nth-child(3) {
+        width: 30%; // Adjust the width of the third column (Date)
+      }
+
+      &:nth-child(4) {
+        width: 40%; // Adjust the width of the fourth column (Actions)
+      }
+    }
+  }
+}
+
+
+.fontTitle {
+  font-size: 12px;
+}
+
+.fontTitlep {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+// .remove-all-button,
+// .remove-button {
+//   background-color: #e74c3c;
+//   color: #fff;
+//   border: none;
+//   padding: 8px 16px;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+// }
+
+// .remove-all-button:hover,
+// .remove-button:hover {
+//   background-color: #c0392b;
+// }
+
+// .remove-button svg {
+//   margin-right: 5px;
+// }
+
+// .No {
+//   color: blue;
+// }
+
+// .dropdown-list-image {
+//   position: relative;
+//   height: 2.5rem;
+//   width: 2.5rem;
+// }
+
+// .dropdown-list-image img {
+//   height: 2.5rem;
+//   width: 2.5rem;
+// }
+
+// .btn-light {
+//   color: #2cdd9b;
+//   background-color: #e5f7f0;
+//   border-color: #d8f7eb;
+// }
+.Fixed table,
+th,
+td {
+  border: none;
+}
+
+
+
+.notfBtn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .45rem;
+  margin-right: 1rem;
+  background-color: whitesmoke;
+}
+
+.iConRmv {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .45rem;
+  margin-right: 1rem;
+  background-color: #dc3545;
+  border: none;
+  transition: .4s;
+}
+
+.rmv {
+  color: whitesmoke;
+  font-size: 1.15rem;
+  transition: .4s;
+}
+
+
+.iConRmv:hover,
+.iConChk:hover,
+.iConLoci:hover {
+  background-color: whitesmoke;
+
+}
+
+.iConRmv:hover .rmv {
+  transform: scale(1.1);
+  color: #dc3545;
+}
+
+.iConChk {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .45rem;
+  margin-right: 1rem;
+  background-color: #198754;
+  border: none;
+  transition: .4s;
+}
+
+.chk {
+  transition: .4s;
+  color: whitesmoke;
+  font-size: 1.25rem;
+}
+
+.iConChk:hover .chk {
+  transform: scale(1.2);
+  color: #198754;
+}
+
+.iConLoci {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .45rem;
+  margin-right: 1rem;
+  background-color: #0d6efd;
+  border: none;
+  transition: .4s;
+}
+
+.Loci {
+  transition: .4s;
+  color: whitesmoke;
+  font-size: 1.35rem;
+}
+
+.iConLoci:hover .Loci {
+  transform: scale(1.2);
+  color: #0d6efd;
+}
+
+.modal-content {
+width: 630px;
+}

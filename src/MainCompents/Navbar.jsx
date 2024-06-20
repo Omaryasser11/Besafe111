@@ -15,29 +15,30 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { atom, useRecoilState } from "recoil";
 import "./Navbar.scss";
-
 import { useAuth } from ".././store/auth.jsx";
 import baseUrl from "../BaseUrl.js";
 
-// Your component code here
-export const userState = atom({
-  key: "userState",
-  default: { loggedIn: false, username: "" },
-});
+// // Your component code here
+// export const userState = atom({
+//   key: "userState",
+//   default: { loggedIn: false, username: "" },
+// });
 
-export const notificationState = atom({
-  key: "notificationState",
-  default: { click: false },
-});
+// export const notificationState = atom({
+//   key: "notificationState",
+//   default: { click: false },
+// });
 export default function Navbar() {
-  const token = localStorage.getItem("token");
-  const user = JSON.parse(localStorage.getItem("user"));
-  const navigate = useNavigate();
+  const auth = useAuth();
 
+  const token = auth.Token;
+  const user = auth.user;
+  const navigate = useNavigate();
   const [showLinks, setShowLinks] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [showNotifications, setShowNotifications] = useState(false);
   const notificationRef = useRef(null);
+
 
   const getNotifications = async () => {
     try {
@@ -49,8 +50,8 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const user = JSON.parse(localStorage.getItem("user"));
+    const token = auth.Token;
+    const user = auth.user;
     if (token) {
       getNotifications();
     }
@@ -142,7 +143,7 @@ export default function Navbar() {
           {token && (
             <>
               <Link className="m-3 m3" to="/UserProfile">
-                <FontAwesomeIcon icon={faUser} /> Welcome, {user?.name}!
+                <FontAwesomeIcon icon={faUser} /> Welcome, {user}!
               </Link>
               <Link
                 className="m-3 m3 position-relative notification-link"

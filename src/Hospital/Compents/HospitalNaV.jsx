@@ -16,10 +16,10 @@ export const userState = atom({
     default: { loggedIn: false, username: '' }
 });
 
-export const notificationState = atom({
-    key: 'notificationState',
-    default: { click: false }
-});
+// export const notificationState = atom({
+//     key: 'notificationState',
+//     default: { click: false }
+// });
 
 export default function HospitalNaV() {
 

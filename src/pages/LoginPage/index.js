@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import appLogo from "../../assets/LOGO1.png";
 import "./index.scss";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import baseUrl from "../../BaseUrl";
+import { useAuth } from "../../store/auth";
 
 const LoginForm = () => {
+  const { login1 } = useAuth();
+  const location = useLocation();
   const navigate = useNavigate();
+  const redirectPath = location.state?.from?.pathname || "/";
+
   const [formData, setFormData] = useState({
     emailOrPhoneNumber: "",
     password: "",
   });
+
+  const [errors, setErrors] = useState({});
+  const [loginError, setLoginError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,15 +30,54 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await baseUrl.post("/account/login", formData);
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data));
-      navigate("/");
-    } catch (error) {
-      alert(error.message);
-      console.log(error);
+    const validationErrors = validateForm(formData);
+    if (Object.keys(validationErrors).length === 0) {
+      try {
+        const { data } = await baseUrl.post("/account/login", formData);
+        const { token, name, role } = data;
+
+        // localStorage.setItem("user", JSON.stringify(data));
+        // localStorage.setItem("userName", name);
+        localStorage.setItem("token", token);
+
+        login1(token, name, role);
+
+        if (role === "Admin") {
+          navigate("/HomeAdmin");
+        } else if (role === "Hospital") {
+          navigate("/Hospital");
+        } else {
+          navigate(redirectPath);
+        }
+      } catch (error) {
+        console.error("Login error:", error);
+        setLoginError("An error occurred during login");
+      }
+    } else {
+      setErrors(validationErrors);
     }
+  };
+
+  const validateForm = (data) => {
+    let errors = {};
+
+    // Check if data is defined and is an object
+    if (typeof data !== "object" || data === null) {
+      errors.general = "Invalid data";
+      return errors;
+    }
+
+    // Validate emailOrPhoneNumber
+    if (!data.emailOrPhoneNumber || typeof data.emailOrPhoneNumber !== "string" || !data.emailOrPhoneNumber.trim()) {
+      errors.emailOrPhoneNumber = "Email or phone number is required";
+    }
+
+    // Validate password
+    if (!data.password || typeof data.password !== "string" || !data.password.trim()) {
+      errors.password = "Password is required";
+    }
+
+    return errors;
   };
 
   return (
@@ -56,19 +102,22 @@ const LoginForm = () => {
             <h2 className="H2">Login</h2>
           </div>
           <form onSubmit={handleSubmit} className="col-10 login12">
-            <div className=" col-10">
+            <div className="col-10">
               <TextField
-                id="email"
-                label="Email"
+                id="emailOrPhoneNumber"
+                label="Email or Phone Number"
                 variant="outlined"
                 className="input2 col-12"
-                type="email"
+                type="text"
                 name="emailOrPhoneNumber"
-                placeholder="Email"
+                placeholder="Email or Phone Number"
                 onChange={handleChange}
+                value={formData.emailOrPhoneNumber}
+                error={!!errors.emailOrPhoneNumber}
+                helperText={errors.emailOrPhoneNumber}
               />
             </div>
-            <div className=" col-10">
+            <div className="col-10">
               <TextField
                 id="password"
                 label="Password"
@@ -78,10 +127,14 @@ const LoginForm = () => {
                 name="password"
                 placeholder="Password"
                 onChange={handleChange}
+                value={formData.password}
+                error={!!errors.password}
+                helperText={errors.password}
               />
             </div>
+            {loginError && <div className="col-10 error">{loginError}</div>}
             <div className="col-10">
-              <button type="submit" variant="contained" className="col-12 btn">
+              <button type="submit" className="col-12 btn">
                 Login
               </button>
             </div>

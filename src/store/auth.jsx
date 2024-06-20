@@ -6,6 +6,8 @@ const AuthContext = createContext()
 export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
+    const [Token, setToken] = useState(null)
+    const [role, setRole] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(null);
     const logoutTimeoutDuration = 900000; // 15 miniate in milliseconds
     let logoutTimer;
@@ -13,11 +15,13 @@ export const AuthProvider = ({ children }) => {
 
     const initializeAuthState = useCallback(() => {
         const token = localStorage.getItem('authToken');
-        const storedUser = localStorage.getItem('user');
-
-        if (token && storedUser) {
+        const storedUser = localStorage.getItem('userName');
+        const Role = localStorage.getItem("role");
+        if (token && storedUser && Role) {
             setIsAuthenticated(true);
             setUser(storedUser);
+            setToken(token);
+            setRole(Role);
             resetLogoutTimer(); // Reset the timer when initializing auth state
         } else {
             setIsAuthenticated(false);
@@ -26,19 +30,26 @@ export const AuthProvider = ({ children }) => {
 
 
 
-    const login1 = (token, user) => {
+    const login1 = (token, user, role) => {
         localStorage.setItem('authToken', token);
-        localStorage.setItem('user', user);
+        localStorage.setItem('userName', user);
+        localStorage.setItem("role", role);
         setIsAuthenticated(true);
         setUser(user);
+        setToken(token);
+        setRole(role);
         resetLogoutTimer(); // Reset the timer on login
     };
     const logout = () => {
 
         localStorage.removeItem('authToken');
-        localStorage.removeItem('user');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('role');
+        localStorage.clear();
         setIsAuthenticated(false);
         setUser(null);
+        setToken(null);
+        setRole(null);
         if (logoutTimer) {
             clearTimeout(logoutTimer);
         }
@@ -79,7 +90,7 @@ export const AuthProvider = ({ children }) => {
 
 
     return (
-        <AuthContext.Provider value={{ logout, login1, isAuthenticated, user }}>
+        <AuthContext.Provider value={{ logout, login1, isAuthenticated, user, Token, role }}>
             {children}
         </AuthContext.Provider>
     )

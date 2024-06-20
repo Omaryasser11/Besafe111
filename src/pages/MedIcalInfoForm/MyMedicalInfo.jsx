@@ -4,27 +4,27 @@ import MedicalInfoImg from '../../assets/MedicalInnfo.jpg';
 import Swal from "sweetalert2";
 
 function MyMedicalInfo() {
-  const optionsDiseaseType = [
-    { id: 'heartDisease' },
-    { id: 'Kidney disease' },
-    { id: 'Liver Disease' },
-    { id: 'Blood disease' },
-    { id: 'particular Virus' },
-    { id: 'diabetes' },
-    { id: 'pressure disease' },
-    { id: 'Another disease' },
-];
+    const optionsDiseaseType = [
+        { id: 'heartDisease' },
+        { id: 'Kidney disease' },
+        { id: 'Liver Disease' },
+        { id: 'Blood disease' },
+        { id: 'particular Virus' },
+        { id: 'diabetes' },
+        { id: 'pressure disease' },
+        { id: 'Another disease' },
+    ];
 
-const optionsBloodType = [
-    { id: 'A' },
-    { id: 'B' },
-    { id: 'O' },
-    { id: 'AB' },
-    { id: 'A-' },
-    { id: 'B-' },
-    { id: 'AB-' },
-    { id: 'O-' },
-];
+    const optionsBloodType = [
+        { id: 'A' },
+        { id: 'B' },
+        { id: 'O' },
+        { id: 'AB' },
+        { id: 'A-' },
+        { id: 'B-' },
+        { id: 'AB-' },
+        { id: 'O-' },
+    ];
 
     const [AddBtn, setAddBtn] = useState(true);
     const [DisplayBtn, setDisplayBtn] = useState(false);
@@ -79,13 +79,13 @@ const optionsBloodType = [
 
         if (canProceed) {
             setStep((prevStep) => Math.min(prevStep + 1, 5));
-            
+
         }
     };
 
     const handlePrevious = () => {
         setStep((prevStep) => Math.max(prevStep - 1, 1));
-      
+
     };
 
     const handleSubmit = (e) => {
@@ -95,7 +95,7 @@ const optionsBloodType = [
             alert('Please fill in all fields');
             return;
         }
-  
+
         // Submit formData to server or perform any necessary actions
         console.log(formData);
 
@@ -135,54 +135,54 @@ const optionsBloodType = [
 
                 {AddBtn && (
 
-                        <form className="form-control-MedicalInfo col-9" onSubmit={handleSubmit}>
-                            {step === 1 && (
-                                <>
-                                    <label htmlFor="length" className="MyLength">Length</label>
-                                    <input type="text" name="length" placeholder="Length in cm" value={formData.length} onChange={handleChange} />
-                                </>
+                    <form className="form-control-MedicalInfo col-9" onSubmit={handleSubmit}>
+                        {step === 1 && (
+                            <>
+                                <label htmlFor="length" className="MyLength">Length</label>
+                                <input type="text" name="length" placeholder="Length in cm" value={formData.length} onChange={handleChange} />
+                            </>
+                        )}
+                        {step === 2 && (
+                            <>
+                                <label htmlFor="weight" className="MyWeight">Weight</label>
+                                <input type="text" name="weight" placeholder="Weight in kg" value={formData.weight} onChange={handleChange} />
+                            </>
+                        )}
+                        {step === 3 && (
+                            <>
+                                <label htmlFor="diseaseType" className="MyDiseaseType">Disease type</label>
+                                <select name="diseaseType" value={formData.diseaseType} onChange={handleChange} required>
+                                    <option disabled>Select..</option>
+                                    {optionsDiseaseType.map((option) => (
+                                        <option key={option.id}>{option.id}</option>
+                                    ))}
+                                </select>
+                            </>
+                        )}
+                        {step === 4 && (
+                            <>
+                                <label htmlFor="bloodType" className="MyBloodType">Blood Type</label>
+                                <select name="bloodType" value={formData.bloodType} onChange={handleChange} required>
+                                    <option disabled>Select..</option>
+                                    {optionsBloodType.map((option) => (
+                                        <option key={option.id}>{option.id}</option>
+                                    ))}
+                                </select>
+                            </>
+                        )}
+                        <div className="col-12 button-container">
+                            {step !== 1 && (
+                                <button type="button" className="previous-button" onClick={handlePrevious}>Previous</button>
                             )}
-                            {step === 2 && (
-                                <>
-                                    <label htmlFor="weight" className="MyWeight">Weight</label>
-                                    <input type="text" name="weight" placeholder="Weight in kg" value={formData.weight} onChange={handleChange} />
-                                </>
-                            )}
-                            {step === 3 && (
-                                <>
-                                    <label htmlFor="diseaseType" className="MyDiseaseType">Disease type</label>
-                                    <select name="diseaseType" value={formData.diseaseType} onChange={handleChange} required>
-                                        <option disabled>Select..</option>
-                                        {optionsDiseaseType.map((option) => (
-                                            <option key={option.id}>{option.id}</option>
-                                        ))}
-                                    </select>
-                                </>
+                            {step < 4 && (
+                                <button type="button" className="next-button" onClick={handleNext}>Next</button>
                             )}
                             {step === 4 && (
-                                <>
-                                    <label htmlFor="bloodType" className="MyBloodType">Blood Type</label>
-                                    <select name="bloodType" value={formData.bloodType} onChange={handleChange} required>
-                                        <option disabled>Select..</option>
-                                        {optionsBloodType.map((option) => (
-                                            <option key={option.id}>{option.id}</option>
-                                        ))}
-                                    </select>
-                                </>
+                                <button type="submit" className="submit-button">Submit</button>
                             )}
-                            <div className="col-12 button-container">
-                                {step !== 1 && (
-                                    <button type="button" className="previous-button" onClick={handlePrevious}>Previous</button>
-                                )}
-                                {step < 4 && (
-                                    <button type="button" className="next-button" onClick={handleNext}>Next</button>
-                                )}
-                                {step === 4 && (
-                                    <button type="submit" className="submit-button">Submit</button>
-                                )}
-                            </div>
-                        </form>
-                
+                        </div>
+                    </form>
+
                 )}
 
                 {DisplayBtn && (

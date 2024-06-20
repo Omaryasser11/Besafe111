@@ -1,69 +1,127 @@
 import React, { useState } from 'react';
-import "./ChangePassword.scss"
-const ResetPasswordForm = () => {
+import { useLocation, useNavigate } from 'react-router-dom';
+import './ChangePassword.scss';
+import baseUrl from '../../BaseUrl';
+import Swal from 'sweetalert2';
+
+const ChangePasswordForm = () => {
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [message, setMessage] = useState('');
     const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
 
-    const handleSubmit = (e) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    // Retrieve email and otp from location state
+    const { email, otp } = location.state || {};
+
+    // Redirect to EnterOTP page if email or otp is missing
+    if (!email || !otp) {
+        navigate('/forgot-password');
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
+        setMessage('');
 
         // Check if new password and confirm password match
         if (newPassword !== confirmPassword) {
-            setError('New password and confirm password do not match');
+            Swal.fire({
+                title: "Passwords do not match",
+                text: "Please Enter Matching Password",
+                icon: "question"
+            });
+            setError('Passwords do not match');
             return;
         }
 
-        // Reset password logic
-        // Here you would typically make an API call to reset the password
-        // For the sake of example, let's just log the new password to the console
-        console.log('New password:', newPassword);
+        try {
+            const response = await baseUrl.post('/account/resetPassword', {
+                email: email,
+                otp: otp,
+                password: newPassword,
+            });
 
-        // Display success message
-        setMessage('Password reset successfully');
+            if (response.status === 200) {
+                setMessage('Password reset successfully');
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Password reset successfully",
+                    icon: "success"
+                });
+                setTimeout(() => {
+                    navigate('/login', { replace: true });
+                }, 3000); // Redirect to login page after 3 seconds
+            } else {
+                const errorText = response.data.message || 'An error occurred';
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorText,
 
-        // Reset form fields
-        setNewPassword('');
-        setConfirmPassword('');
-        setError('');
+                });
+                setError(errorText);
+            }
+        } catch (err) {
+            if (err.response) {
+                if (err.response.status === 401) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "Password reset successfully",
+                        icon: "success"
+                    });
+                    setError('Sucess');
+                    setTimeout(() => {
+                        navigate('/login', { replace: true });
+                    }, 3000); // Redirect to login page after 3 seconds
+                } else {
+                    const errorText = err.response.data.message || 'Error resetting password';
+                    setError(errorText);
+                }
+            } else {
+                Swal.fire({
+                    title: "Network error?",
+                    text: "Please try again.",
+                    icon: "question"
+                });
+                setError('Network error. Please try again.');
+            }
+            console.error('Error during password reset:', err);
+        }
     };
 
     return (
-        <div className="Restform col-12">
+        <div className="ChangePasswordForm col-12">
             <h2>Enter New Password</h2>
             {message && <div className="message">{message}</div>}
             {error && <div className="error">{error}</div>}
             {!message && (
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-
                         <input
-                            className='col-12'
                             placeholder='New Password'
                             type="password"
-                            id="new-password"
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
                             required
                         />
                     </div>
                     <div className="form-group">
-
-                        <input className='col-12'
+                        <input
                             placeholder='Confirm Password'
                             type="password"
-                            id="confirm-password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             required
                         />
                     </div>
-                    <button className='btn col-12' type="submit">Reset Password</button>
+                    <button className="btn" type="submit">Reset Password</button>
                 </form>
             )}
         </div>
     );
 };
 
-export default ResetPasswordForm;
+export default ChangePasswordForm;

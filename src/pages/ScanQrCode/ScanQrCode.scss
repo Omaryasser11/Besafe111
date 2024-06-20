@@ -1,18 +1,78 @@
 .QrcodeScanning {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
     align-items: center;
-}
-.QrcodeScanning{
+    justify-content: center;
+    height: auto; /* Full viewport height */
+    background-color: #f0f0f0; /* Light background color */
+    font-family: Arial, sans-serif; /* Example font stack */
+    padding: 10px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
+  
+    .scan-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #333; /* Dark text color */
+    }
+  
+    #reader {
+      width: 250px;
+      height: 250px;
+      border: 2px solid #333; /* Dark border for QR code scanner */
+      margin-bottom: 20px;
+    }
+  }
+  
+  .QrInformationContainer {
+    background-color: #fff; /* White background for QR information */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Example box shadow */
+    width: 100%;
+    max-width: 400px; /* Limit width to maintain readability */
+  
+    .qr-info-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333; /* Dark text color */
+    }
+  
+    .qr-info-content {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #555; /* Medium gray text color */
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .QrcodeScanning #reader {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .QrcodeScanning #reader {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .QrcodeScanning {
+      padding: 10px;
+    }
+  
+    .QrcodeScanning #reader {
+      width: 120px;
+      height: 120px;
+    }
+  
+    .QrcodeScanning .scan-title {
+      font-size: 20px;
+    }
+  }
+  

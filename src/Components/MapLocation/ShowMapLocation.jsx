@@ -8,6 +8,7 @@ const ShowMapLocation = () => {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
 
+
   const getLocation = async () => {
     try {
       const { data } = await baseUrl.get(`/locations/${id}`);
@@ -24,7 +25,6 @@ const ShowMapLocation = () => {
 
   return (
     <div>
-      <h1>Google Map Example</h1>
       <GoogleMapIframe latitude={latitude} longitude={longitude} />
     </div>
   );

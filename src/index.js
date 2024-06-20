@@ -10,8 +10,8 @@ import WOW from "wowjs";
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const wow = new WOW.WOW();
-wow.init();
+// const wow = new WOW.WOW();
+// wow.init();
 root.render(
   <RecoilRoot>
     <App></App>

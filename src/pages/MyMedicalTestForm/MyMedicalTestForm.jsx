@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import MedicalTestImg from "../../assets/addoh_hero.jpg";
 import "../MyMedicalTestForm/MyMedicalTestForm.scss";
 import baseUrl from "../../BaseUrl";
 
@@ -13,9 +12,15 @@ function MyMedicalTestForm() {
     comment: "",
   });
   const [data, setData] = useState([]);
-  const [patientName] = useState(
-    JSON.parse(localStorage.getItem("user")).name || "none"
-  );
+  const [selectedTest, setSelectedTest] = useState(null);
+  const [patientName, setPatientName] = useState("none");
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.name) {
+      setPatientName(user.name);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,6 +90,8 @@ function MyMedicalTestForm() {
         comment: "",
       });
       setStep(1);
+      // Refresh the display data
+      handleDisplayClick();
     } catch (error) {
       console.log(error);
     }
@@ -93,16 +100,39 @@ function MyMedicalTestForm() {
   const handleAddClick = () => {
     setAddBtn(true);
     setDisplayBtn(false);
+    setSelectedTest(null);
   };
 
   const handleDisplayClick = async () => {
     setAddBtn(false);
     setDisplayBtn(true);
+    setSelectedTest(null);
 
     try {
       const { data } = await baseUrl.get("/medicalRecords?type=MedicalTest");
       setData(data);
       console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleRowClick = (test) => {
+    setSelectedTest(test);
+  };
+
+  const handleRemove = async (id) => {
+    try {
+      await baseUrl.delete(`/medicalRecords/${id}`);
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Medical test removed",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      // Refresh the display data
+      handleDisplayClick();
     } catch (error) {
       console.log(error);
     }
@@ -186,30 +216,49 @@ function MyMedicalTestForm() {
         </form>
       )}
 
-      {DisplayBtn && (
+      {DisplayBtn && !selectedTest && (
         <div className=" col-9 table-container">
           <table className="styled-table">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Patient Name</th>
                 <th>Date</th>
                 <th>Comments</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {data?.data?.map((item) => {
-                return (
-                  <tr key={item?.id}>
-                    <td>{item?.id}</td>
-                    <td>{patientName}</td>
-                    <td>{item?.dateTimeStamp}</td>
-                    <td>{item?.comment}</td>
-                  </tr>
-                );
-              })}
+              {data?.data?.map((item) => (
+                <tr key={item.id} onClick={() => handleRowClick(item)}>
+                  <td>{item.id}</td>
+                  <td>{item.dateTimeStamp}</td>
+                  <td>{item.comment}</td>
+                  <td>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleRemove(item.id);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {selectedTest && (
+        <div className="col-9 xray-details-container">
+          <h2>Medical Test Details</h2>
+          <p><strong>ID:</strong> {selectedTest.id}</p>
+          <p><strong>Patient Name:</strong> {patientName}</p>
+          <p><strong>Date:</strong> {selectedTest.dateTimeStamp}</p>
+          <p><strong>Comment:</strong> {selectedTest.comment}</p>
+          <img src={selectedTest.mediaUrl} alt="Medical Test" />
+          <button onClick={() => setSelectedTest(null)}>Back</button>
         </div>
       )}
     </div>

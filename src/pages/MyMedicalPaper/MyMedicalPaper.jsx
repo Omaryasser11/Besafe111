@@ -73,10 +73,13 @@ function MyMedicalPaper() {
     const formData = new FormData();
     formData.append("media", file);
     formData.append("comment", text);
+    formData.append("DateTimeStamp", new Date().toISOString());
     formData.append("type", "MedicalPaper");
 
     try {
-      await baseUrl.post("/medicalRecords", formData);
+      await baseUrl.post("/medicalRecords", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       Swal.fire({
         position: "top-center",
         icon: "success",
@@ -126,10 +129,7 @@ function MyMedicalPaper() {
   return (
     <div className="col-12 XRay-Container">
       <div className="BtnContainer">
-        <button
-          onClick={Add}
-          className={AddBtn ? "SelectedOne" : "BTNA"}
-        >
+        <button onClick={Add} className={AddBtn ? "SelectedOne" : "BTNA"}>
           Add Medical Paper
         </button>
         <button
@@ -214,10 +214,18 @@ function MyMedicalPaper() {
       {selectedPaper && (
         <div className="col-9 xray-details-container">
           <h2>Medical Paper Details</h2>
-          <p><strong>ID:</strong> {selectedPaper.id}</p>
-          <p><strong>Patient Name:</strong> {patientName}</p>
-          <p><strong>Date:</strong> {selectedPaper.dateTimeStamp}</p>
-          <p><strong>Comment:</strong> {selectedPaper.comment}</p>
+          <p>
+            <strong>ID:</strong> {selectedPaper.id}
+          </p>
+          <p>
+            <strong>Patient Name:</strong> {patientName}
+          </p>
+          <p>
+            <strong>Date:</strong> {selectedPaper.dateTimeStamp}
+          </p>
+          <p>
+            <strong>Comment:</strong> {selectedPaper.comment}
+          </p>
           <img src={selectedPaper.mediaUrl} alt="" />
           <button onClick={() => setSelectedPaper(null)}>Back</button>
         </div>

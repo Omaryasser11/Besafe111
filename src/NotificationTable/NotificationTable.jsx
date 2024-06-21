@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from 'react'; // Importing useState and useEffect
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faCalendar, faCircleCheck, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import baseUrl from '../BaseUrl';
-import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
-import './NotificationTable.scss';
-import LOC from '../assets/Location.png';
-import Con from '../assets/connect.png';
-import Swal from 'sweetalert2';
-import Modal from 'react-bootstrap/Modal'; // Importing Modal from React Bootstrap
-import Button from 'react-bootstrap/Button'; // Importing Button from React Bootstrap
-import LocationComponent from '../Components/MapLocation/ShowMapLocation'; // Replace with correct path to LocationComponent
-import Loader from '../Components/Loadar/Loadar';
+import React, { useState, useEffect } from "react"; // Importing useState and useEffect
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTrash,
+  faCalendar,
+  faCircleCheck,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
+import baseUrl from "../BaseUrl";
+import { Link } from "react-router-dom";
+// import { format } from "date-fns";
+import "./NotificationTable.scss";
+import LOC from "../assets/Location.png";
+import Con from "../assets/connect.png";
+import Swal from "sweetalert2";
+import Modal from "react-bootstrap/Modal"; // Importing Modal from React Bootstrap
+import Button from "react-bootstrap/Button"; // Importing Button from React Bootstrap
+import LocationComponent from "../Components/MapLocation/ShowMapLocation"; // Replace with correct path to LocationComponent
+import Loader from "../Components/Loadar/Loadar";
 
 const NotificationTable = ({ notifications }) => {
-
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [selectedResourceId, setSelectedResourceId] = useState(null);
 
@@ -25,7 +29,7 @@ const NotificationTable = ({ notifications }) => {
         icon: "info",
         title: `Deleting notification ${index}...`,
         showConfirmButton: false,
-        timer: 3000 // Adjust as needed
+        timer: 3000, // Adjust as needed
       });
 
       await baseUrl.delete("/notifications/" + index);
@@ -35,9 +39,8 @@ const NotificationTable = ({ notifications }) => {
         icon: "success",
         title: `Notification ${index} Deleted Successfully`,
         showConfirmButton: false,
-        timer: 2000
+        timer: 2000,
       });
-
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -45,7 +48,7 @@ const NotificationTable = ({ notifications }) => {
         icon: "error",
         title: `Error: ${error.message}`,
         showConfirmButton: false,
-        timer: 2000
+        timer: 2000,
       });
     }
   };
@@ -59,14 +62,13 @@ const NotificationTable = ({ notifications }) => {
   };
 
   const handleAcceptConnect = async (id) => {
-
     try {
       Swal.fire({
         position: "top-end",
         icon: "info",
         title: "Connecting...",
         showConfirmButton: false,
-        timer: 5000 // Adjust as needed
+        timer: 5000, // Adjust as needed
       });
 
       await baseUrl.put("/connectionRequests/acceptConnection/" + id);
@@ -76,9 +78,8 @@ const NotificationTable = ({ notifications }) => {
         icon: "success",
         title: "You are Connected Successfully",
         showConfirmButton: false,
-        timer: 2000
+        timer: 2000,
       });
-
     } catch (error) {
       console.log(error);
 
@@ -87,7 +88,7 @@ const NotificationTable = ({ notifications }) => {
         icon: "error",
         title: `Error: ${error.message}`,
         showConfirmButton: false,
-        timer: 2000
+        timer: 2000,
       });
     }
   };
@@ -98,7 +99,7 @@ const NotificationTable = ({ notifications }) => {
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
-    return format(date, 'hh:mm a MMM dd, yyyy');
+    // return format(date, "hh:mm a MMM dd, yyyy");
   };
   const handleLocationClick = (resourceId) => {
     Swal.fire({
@@ -106,9 +107,9 @@ const NotificationTable = ({ notifications }) => {
       icon: "info",
       title: "Loading location details...",
       showConfirmButton: false,
-      timer: 2000 // Show alert for 2 seconds before showing the modal
+      timer: 2000, // Show alert for 2 seconds before showing the modal
     });
-  
+
     // Set a timeout to show the modal after the alert
     setTimeout(() => {
       setSelectedResourceId(resourceId);
@@ -118,7 +119,10 @@ const NotificationTable = ({ notifications }) => {
   return (
     <div className="Fixed">
       {/* Modal for Location Component */}
-      <Modal    show={showLocationModal} onHide={() => setShowLocationModal(false)}>
+      <Modal
+        show={showLocationModal}
+        onHide={() => setShowLocationModal(false)}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Location Details</Modal.Title>
         </Modal.Header>
@@ -126,7 +130,10 @@ const NotificationTable = ({ notifications }) => {
           <LocationComponent resourceId={selectedResourceId} />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowLocationModal(false)}>
+          <Button
+            variant="secondary"
+            onClick={() => setShowLocationModal(false)}
+          >
             Close
           </Button>
         </Modal.Footer>
@@ -160,27 +167,30 @@ const NotificationTable = ({ notifications }) => {
               >
                 <td>
                   <div className="d-flex align-items-center">
-
                     <img
-                      src={notification.type === 'Location' ? LOC : Con}
+                      src={notification.type === "Location" ? LOC : Con}
                       alt=""
-                      style={{ width: '45px', height: '45px' }}
+                      style={{ width: "45px", height: "45px" }}
                       className="rounded-circle"
                     />
                     <div className="ms-3">
-                      <p className="fw-bold mb-1 fontTitle">{notification.type}</p>
+                      <p className="fw-bold mb-1 fontTitle">
+                        {notification.type}
+                      </p>
                     </div>
                   </div>
                 </td>
-                <td><p className="fontTitle fw-bold mb-1">{notification.content}</p></td>
-                <td><p className="fontTitle fw-bold mb-1">{formatDate(notification.notifiedOn)}</p></td>
                 <td>
-
-
-
-
-
-
+                  <p className="fontTitle fw-bold mb-1">
+                    {notification.content}
+                  </p>
+                </td>
+                <td>
+                  <p className="fontTitle fw-bold mb-1">
+                    {/*{formatDate(notification.notifiedOn)}*/}
+                  </p>
+                </td>
+                <td>
                   <button
                     className="iConRmv"
                     type="button"
@@ -189,16 +199,30 @@ const NotificationTable = ({ notifications }) => {
                     <FontAwesomeIcon className="iCon rmv" icon={faTrash} />
                   </button>
                   {notification?.type === "Location" ? (
-                    <button className="iConLoci" type="button" onClick={() => handleLocationClick(notification.resourceId)}>
-                      <FontAwesomeIcon className="iCon Loci" icon={faLocationDot} />
+                    <button
+                      className="iConLoci"
+                      type="button"
+                      onClick={() =>
+                        handleLocationClick(notification.resourceId)
+                      }
+                    >
+                      <FontAwesomeIcon
+                        className="iCon Loci"
+                        icon={faLocationDot}
+                      />
                     </button>
                   ) : (
                     <button
                       className="iConChk"
                       type="button"
-                      onClick={() => handleAcceptConnect(notification?.resourceId)}
+                      onClick={() =>
+                        handleAcceptConnect(notification?.resourceId)
+                      }
                     >
-                      <FontAwesomeIcon className="iCon chk" icon={faCircleCheck} />
+                      <FontAwesomeIcon
+                        className="iCon chk"
+                        icon={faCircleCheck}
+                      />
                     </button>
                   )}
                 </td>
@@ -213,7 +237,7 @@ const NotificationTable = ({ notifications }) => {
           )}
         </tbody>
       </table>
-    </div >
+    </div>
   );
 };
 

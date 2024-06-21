@@ -72,9 +72,12 @@ function MyMedicalTestForm() {
     const modal = new FormData();
     modal.append("media", formData.medicalTest);
     modal.append("comment", formData.comment);
+    modal.append("DateTimeStamp", new Date().toISOString());
     modal.append("type", "MedicalTest");
     try {
-      await baseUrl.post("/medicalRecords", modal);
+      await baseUrl.post("/medicalRecords", modal, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
       Swal.fire({
         position: "top-center",
@@ -253,10 +256,18 @@ function MyMedicalTestForm() {
       {selectedTest && (
         <div className="col-9 xray-details-container">
           <h2>Medical Test Details</h2>
-          <p><strong>ID:</strong> {selectedTest.id}</p>
-          <p><strong>Patient Name:</strong> {patientName}</p>
-          <p><strong>Date:</strong> {selectedTest.dateTimeStamp}</p>
-          <p><strong>Comment:</strong> {selectedTest.comment}</p>
+          <p>
+            <strong>ID:</strong> {selectedTest.id}
+          </p>
+          <p>
+            <strong>Patient Name:</strong> {patientName}
+          </p>
+          <p>
+            <strong>Date:</strong> {selectedTest.dateTimeStamp}
+          </p>
+          <p>
+            <strong>Comment:</strong> {selectedTest.comment}
+          </p>
           <img src={selectedTest.mediaUrl} alt="Medical Test" />
           <button onClick={() => setSelectedTest(null)}>Back</button>
         </div>

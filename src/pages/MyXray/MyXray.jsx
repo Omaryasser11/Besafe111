@@ -70,9 +70,14 @@ function MyXray() {
       const formData = new FormData();
       formData.append("media", file);
       formData.append("comment", text);
+      formData.append("DateTimeStamp", new Date().toISOString());
       formData.append("type", "XRay");
+
+      console.log(file);
       try {
-        await baseUrl.post("/medicalRecords", formData);
+        await baseUrl.post("/medicalRecords", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
         Swal.fire({
           position: "top-center",
           icon: "success",
@@ -212,10 +217,18 @@ function MyXray() {
       {selectedXray && (
         <div className="col-9 xray-details-container">
           <h2>X-ray Details</h2>
-          <p><strong>ID:</strong> {selectedXray.id}</p>
-          <p><strong>Patient Name:</strong> {patientName}</p>
-          <p><strong>Date:</strong> {selectedXray.dateTimeStamp}</p>
-          <p><strong>Comment:</strong> {selectedXray.comment}</p>
+          <p>
+            <strong>ID:</strong> {selectedXray.id}
+          </p>
+          <p>
+            <strong>Patient Name:</strong> {patientName}
+          </p>
+          <p>
+            <strong>Date:</strong> {selectedXray.dateTimeStamp}
+          </p>
+          <p>
+            <strong>Comment:</strong> {selectedXray.comment}
+          </p>
           <img src={selectedXray.mediaUrl} alt="" />
           <button onClick={() => setSelectedXray(null)}>Back</button>
         </div>
